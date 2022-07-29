@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/07/28 04:30:15 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/07/29 02:14:25 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,14 @@ LIBFT_SRC 		= $(wildcard $(LIBFT_SRC_DIR)/*.c)
 I_LIBFT 		= $(LIBFT_DIR)/includes
 I_LIBFT_H	 	= $(I_LIBT)/libft.h
 
+	#---------- MLX ------------------------------------------------------------
+M_MLX_DIR 		= $(MLX_DIR)/Makefile
+
+MLX_LIB			= mlx
+MLX_DIR 		= $(SRC_DIR)/mlx
+
+I_MLX 			= $(MLX_DIR)/includes
+I_MLX_H		 	= $(wildcard $(I_MLX)/*.h)
 #---------- FdF ------ ----------------------------------------------------------
 #---------- INCLUDES ----------
 I_DIR 			= $(DIR)/includes
@@ -72,14 +80,15 @@ OBJ 			= $(OBJ_PS) $(OBJ_INSTR) $(OBJ_COLOR)
 #---------- FLAGS ----------
 CC 			= gcc
 FLAGS 			= -Wall -Wextra -Werror
-I_FLAG 			= -I $(I_DIR)/ -I $(I_FTPF)/ -I $(I_LIBFT)/
+I_FLAG 			= -I $(I_DIR)/ -I $(I_FTPF)/ -I $(I_LIBFT)/ -I $(I_MLX)/
+MLX_FLAGS		= -framework OpenGL -framework AppKit
 
 $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c
-				@$(CC) $(FLAGS) $(I_FLAG)  -c $< -o $@
+				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 $(BUILD_DIR)/%.o : $(SRC_2)/%.c
-				@$(CC) $(FLAGS) $(I_FLAG)  -c $< -o $@
+				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 $(BUILD_DIR)/%.o : $(SRC_1)/%.c
-				@$(CC) $(FLAGS) $(I_FLAG)  -c $< -o $@
+				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 #-------------------------------------------------------------------------------
 
 all: $(NAME)
@@ -87,14 +96,20 @@ $(NAME): $(OBJ) $(FTPF_SRC) $(M_FTPF) $(LIBFT_SRC) $(M_LIBFT) $(I)
 				@echo "${RED}Compiling LIBFTPRINTF${NC}\c"
 				@make -s -C $(FTPF_DIR)
 				@echo " ---> ${CYAN}Success${NC}"
-				@$(CC) $(FLAGS) $(OBJ) -L$(FTPF_DIR) -l$(FTPF_LIB) -o $(NAME)
+				@echo "$(RED)Compiling MLX$(NC)\c"
+				@make -s -C $(MLX_DIR)
+				@echo " ---> ${CYAN}Success${NC}"
+				@$(CC) $(FLAGS) $(MLX_FLAGS) $(OBJ) -L$(FTPF_DIR) -l$(FTPF_LIB) \
+					-L$(MLX_DIR) -l$(MLX_LIB) -o $(NAME)
 				@echo "${GREEN}${NAME} READY!${NC}"
 clean:
 				@make -s -C $(FTPF_DIR) clean
+				@make -s -C $(MLX_DIR) clean
 				@rm -rf $(BUILD_DIR)/*
 				@echo "${YELLOW}OBJS Removed!${NC}"
 fclean: clean
 				@make -s -C $(FTPF_DIR) fclean
+				@make -s -C $(MLX_DIR) fclean
 				@rm -rf $(NAME)
 				@echo "${YELLOW}$(NAME) Removed!${NC}"
 re: fclean $(NAME)
