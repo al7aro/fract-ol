@@ -6,20 +6,25 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/29 20:15:27 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:22:47 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+#define FT_LITTLE_ENDIAN 0
+#define FT_BIG_ENDIAN 1
+
 typedef struct s_img
 {
-	void	*buffer;
+	char	*buffer;
 	void	*img;
 	int		bpp;
 	int		line_size;
 	int		endi;
+	int		img_w;
+	int		img_h;
 }				t_img;
 
 typedef struct s_mlx
