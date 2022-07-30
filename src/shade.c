@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/30 04:53:25 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/07/30 04:59:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,18 @@ int	iterate(double complex c, int i)
 
 int	shade(int x, int y, int w, int h)
 {
-	int		col;
-	double	xn;
-	double	yn;
-	double	aspect;
-	double complex c;
+	int				col;
+	double			xn;
+	double			yn;
+	double			aspect;
+	double complex	c;
 
 	aspect = (double)w / (double)h;
-	col = 0x00FFFFFF;
-	xn = aspect * ((double)(2 * x) / (double)w - 1);
+	col = 0x00000000;
+	xn = aspect * ((double)(2 * x) / (double)w - 1.3);
 	yn = ((double)(2 * y) / (double)h - 1);
-//	printf("x: %d xn: %f\n", x, xn);
-//	printf("y: %d yn: %f\n", y, yn);
-//	printf("C: %f\n", sqrt(exp2(xn) + exp2(yn)));
 	c = CMPLX(xn, yn);
 	if (iterate(c, 100))
-		col = color(255, 0, 0, 0);
+		col = 0x00ff0058;
 	return (col);
 }

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/29 23:43:42 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/07/30 04:54:25 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "fractol.h"
 #include "utils.h"
 #include "hooks.h"
-#define FT_WIDTH 1080
-#define FT_HEIGHT 720
+#define FT_WIDTH 1920
+#define FT_HEIGHT 1080
 
 int	main(void)
 {
