@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/29 23:42:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/07/30 03:58:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	update_frame(void **param)
 	{
 		x = -1;
 		while (++x < img->img_w)
-			pixel_buffer_put(img, x, y, shade(x, y));
+			pixel_buffer_put(img, x, y, shade(x, y, img->img_w, img->img_h));
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->win, img->img, 0, 0);
 	return (0);
