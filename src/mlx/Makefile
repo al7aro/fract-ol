@@ -3,8 +3,8 @@
 #INC_DIR=/Users/al7aro/Development/42/rank02/fract-ol/src/mlx/includes
 #SRC_DIR=/Users/al7aro/Development/42/rank02/fract-ol/src/mlx/src
 #
-INC_DIR=/Users/alopez-g/Documents/42/rank02/fract-ol/src/mlx/includes
-SRC_DIR=/Users/alopez-g/Documents/42/rank02/fract-ol/src/mlx/src
+INC_DIR=includes
+SRC_DIR=src
 
 NOM=libmlx.a
 SRC= $(SRC_DIR)/mlx_shaders.c	$(SRC_DIR)/mlx_new_window.m \
