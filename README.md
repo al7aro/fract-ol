@@ -1,2 +1,3 @@
-# FdF
-3D mesh drawer
+# fract-ol
+
+Fractal explorer
