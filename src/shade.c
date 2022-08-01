@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/31 13:46:31 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/07/31 22:26:09 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	shade(int x, int y, int w, int h)
 	xn = aspect * ((double)(2 * x) / (double)w - 1.3);
 	yn = ((double)(2 * y) / (double)h - 1);
 	c = CMPLX(xn, yn);
-	if (iterate(c, 100))
+	if (iterate(c, 30))
 		col = 0x00ff0058;
 	return (col);
 }
