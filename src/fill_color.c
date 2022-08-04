@@ -6,13 +6,14 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/30 03:58:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:10:07 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "fractol.h"
 #include "shade.h"
+#include "ft_printf.h"
 
 /*
  * 0 R
@@ -36,17 +37,19 @@ int	update_frame(void **param)
 {
 	int		x;
 	int		y;
+	t_fract	*f;
 	t_mlx	*mlx;
 	t_img	*img;
 
-	mlx = (t_mlx *)*param;
-	img = (t_img *)*(param + 1);
+	f = ((t_fract *)param);
+	mlx = f->mlx;
+	img = f->img;
 	y = -1;
 	while (++y < img->img_h)
 	{
 		x = -1;
 		while (++x < img->img_w)
-			pixel_buffer_put(img, x, y, shade(x, y, img->img_w, img->img_h));
+			pixel_buffer_put(img, x, y, shade(x, y, *f));
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->win, img->img, 0, 0);
 	return (0);

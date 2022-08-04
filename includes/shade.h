@@ -6,13 +6,13 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:36:26 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/30 03:56:48 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 14:53:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHADE_H
 # define SHADE_H
 
-int	shade(int x, int y, int w, int h);
+int	shade(int x, int y, t_fract f);
 
 #endif

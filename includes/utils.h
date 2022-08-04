@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:18:33 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/30 05:05:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:11:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "mlx.h"
 # include "fractol.h"
 
-int		setup(void **info, int width, int height);
+void	update_world(t_fract *f);
+int		setup(t_fract *fract, int width, int height);
 void	print_info(t_mlx mlx, t_img img);
 int		color(unsigned char r, unsigned char g, unsigned char b,
 			unsigned char a);

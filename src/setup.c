@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/30 05:18:41 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:23:14 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-int	setup(void **info, int width, int height)
+void	update_world(t_fract *f)
+{
+	f->world[0] = f->center[0] - ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
+    f->world[1] = f->center[1] + (IY0 / f->zoom);
+    f->world[2] = f->center[0] + ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
+    f->world[3] = f->center[1] + (IY1 / f->zoom);
+}
+
+int	setup(t_fract *fract, int width, int height)
 {
 	t_mlx	*mlx;
 	t_img	*img;
 
-	mlx = *info;
-	img = *(info + 1);
+	mlx = fract->mlx;
+	img = fract->img;
 	mlx->win_w = width;
 	mlx->win_h = height;
 	mlx->mlx = mlx_init();
@@ -34,6 +42,11 @@ int	setup(void **info, int width, int height)
 			&(img->bpp), &(img->line_size), &(img->endi));
 	img->img_w = mlx->win_w;
 	img->img_h = mlx->win_h;
+	img->aspect = (double)width / (double)height;
+	fract->center[0] = 0.0;
+	fract->center[1] = 0.0;
+	fract->zoom = 1.0;
+	update_world(fract);
 	return (0);
 }
 
