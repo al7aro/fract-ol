@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:34:52 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:42:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "fractol.h"
 #include "utils.h"
 #include "ft_math.h"
+#include "temp.h"
 
 int	key_pressed(int keycode, void *param)
 {

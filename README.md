@@ -3,6 +3,8 @@
 Fractal explorer
 
 - [ ] Parseo de argumentos
+	- [ ] Nombre del fractal
+	- [ ] Condiciones iniciales del fractal 
 - [x] SCREEN coords TO WORLD coords
 - [ ] Reorganizar ciertas partes del codigo
 - [x] Hacer que el zoom siga el raton sin irse al centro
@@ -13,3 +15,4 @@ Fractal explorer
 ---
 - [ ] Dividir la pantalla en 2 para anadir opciones
 - [ ] Julia en segunda pantallas 
+- [ ] Optimizar usando un buffer mas pequeno y renderizar solo cuando sea necesario (la image este estatica)

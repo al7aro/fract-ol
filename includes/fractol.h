@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:39:17 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:51:53 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define IY0 -600.0
 
 # define IY1 600.0
-# define MAX_ZOOM 500000000000000000.0
 # define MIN_ZOOM 100.0
 # define MANDELBROT 0
 # define JULIA 1
@@ -51,12 +50,12 @@ typedef struct s_fract
 	t_mlx	*mlx;
 	t_img	*img;
 	double	center[2];
-	double	zoom;
 	double	world[4];
-	double	it;
+	double	zoom;
 	double	szoom;
 	int		type;
 	void	*func;
+	double	it;
 }				t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
