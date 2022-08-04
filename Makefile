@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/04 23:38:50 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/04 23:59:57 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ SRC_DIR 		= $(DIR)/src
 #SRC_2 			= $(SRC_DIR)/instr
 #SRC_1_C 		= color.c
 #SRC_2_C 		= exec.c s.c p.c r.c rr.c 
-SRC_FRACTOL_C 		= main.c fractal.c math.c setup.c hooks.c fill_color.c shade.c
+SRC_FRACTOL_C 		= main.c parser.c fractal.c math.c setup.c hooks.c fill_color.c shade.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
 					$(patsubst %.c, $(SRC_1)/%.c, $(SRC_1_C)) \
 					$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)) 
