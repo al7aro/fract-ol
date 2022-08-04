@@ -2,6 +2,7 @@
 
 Fractal explorer
 
+- [ ] Parseo de argumentos
 - [x] SCREEN coords TO WORLD coords
 - [ ] Reorganizar ciertas partes del codigo
 - [x] Hacer que el zoom siga el raton sin irse al centro
