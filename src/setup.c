@@ -6,20 +6,30 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 15:23:14 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:28:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "fractol.h"
 #include "ft_printf.h"
+#include "ft_math.h"
+
+t_vec2	screen_to_world(t_fract f, int x, int y)
+{
+	t_vec2	c;
+
+	c.r = ((double)x / (double)f.img->img_w * (f.world[2] - f.world[0])) + f.world[0];
+	c.i = ((double)y / (double)f.img->img_h * (f.world[3] - f.world[1])) + f.world[1];
+	return (c);
+}
 
 void	update_world(t_fract *f)
 {
 	f->world[0] = f->center[0] - ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-    f->world[1] = f->center[1] + (IY0 / f->zoom);
+    f->world[1] = -f->center[1] + (IY0 / f->zoom);
     f->world[2] = f->center[0] + ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-    f->world[3] = f->center[1] + (IY1 / f->zoom);
+    f->world[3] = -f->center[1] + (IY1 / f->zoom);
 }
 
 int	setup(t_fract *fract, int width, int height)
@@ -45,7 +55,11 @@ int	setup(t_fract *fract, int width, int height)
 	img->aspect = (double)width / (double)height;
 	fract->center[0] = 0.0;
 	fract->center[1] = 0.0;
-	fract->zoom = 1.0;
+	fract->zoom = 100;
+	fract->szoom = 4;
+	fract->it = 100;
+	fract->type = MANDELBROT;
+	fract->func = znc;
 	update_world(fract);
 	return (0);
 }

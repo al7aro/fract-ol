@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 15:10:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:47:56 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	pixel_buffer_put(t_img *img, int x, int y, int color)
 	return (0);
 }
 
-int	update_frame(void **param)
+int	push_frame_to_img(void **param)
 {
 	int		x;
 	int		y;

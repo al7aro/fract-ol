@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shade.h                                            :+:      :+:    :+:   */
+/*   fractal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/29 23:36:26 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 19:48:59 by alopez-g         ###   ########.fr       */
+/*   Created: 2022/08/04 22:46:04 by alopez-g          #+#    #+#             */
+/*   Updated: 2022/08/04 23:26:35 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHADE_H
-# define SHADE_H
+#include "ft_math.h"
 
-int	shade(int x, int y, t_fract f);
+t_vec2	znc(t_vec2 z, t_vec2 c, int exp)
+{
+	t_vec2	m;
 
-#endif
+	(void)exp;
+	m.r = (z.r * z.r - z.i * z.i) + c.r;
+	m.i = (2 * z.r * z.i) + c.i;
+	return (m);
+}

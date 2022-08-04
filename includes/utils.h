@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:18:33 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 15:11:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:49:05 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include "mlx.h"
 # include "fractol.h"
+# include "ft_math.h"
 
+t_vec2	screen_to_world(t_fract f, int x, int y);
 void	update_world(t_fract *f);
 int		setup(t_fract *fract, int width, int height);
 void	print_info(t_mlx mlx, t_img img);
 int		color(unsigned char r, unsigned char g, unsigned char b,
 			unsigned char a);
 int		pixel_buffer_put(t_img *img, int x, int y, int color);
-int		update_frame(void **param);
+int		push_frame_to_img(void **param);
 
 #endif

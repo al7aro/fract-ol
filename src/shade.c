@@ -6,15 +6,14 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 15:29:22 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:33:17 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "fractol.h"
 #include "ft_printf.h"
-#include <math.h>
-#include <complex.h>
+#include "ft_math.h"
 
 /*
  * Little endian:
@@ -33,18 +32,27 @@ int	color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 	return (color);
 }
 
-int	diverges(double complex c, int it)
+int	diverges(t_vec2 (*func)(), int type, int it, void *init_z, void *init_c)
 {
-	double complex	z;
-	int		i_cnt;
+	t_vec2			z;
+	t_vec2			c;
+	int				i_cnt;
 
 	i_cnt = 0;
-	z = 0;
-	while ((i_cnt++ < it) && creal(z) < 2.0 && cimag(z) < 2.0)
+	if (type == MANDELBROT)
 	{
-		z = z * z + c;
+		z.r = 0;
+		z.i = 0;
+		c = *((t_vec2 *)(init_c));
 	}
-	if (creal(z) > 2.0 || cimag(z) > 2.0)
+	else if (type == JULIA)
+	{	
+		z = *((t_vec2 *)(init_c));
+		c = *((t_vec2 *)(init_z));
+	}
+	while ((i_cnt++ < it) && z.r < 2.0 && z.i < 2.0)
+		z = func(z, c, 0);
+	if (z.r > 2.0 || z.i > 2.0)
 		return (i_cnt);
 	return (0);
 }
@@ -63,13 +71,18 @@ int	diverges(double complex c, int it)
  * */
 int	shade(int x, int y, t_fract f)
 {
-	int				col;
+	int		col;
+	int		d;	
+	t_vec2	z;
 	t_vec2	c;
 	
 	c.r = ((double)x / (double)f.img->img_w * (f.world[2] - f.world[0])) + f.world[0];
 	c.i = ((double)y / (double)f.img->img_h * (f.world[3] - f.world[1])) + f.world[1];
-	if(diverges(CMPLX(c.r, c.i), 100))
-		col = 0x000000FF;
+	z.r = 0.5;
+	z.i = 0.4;
+	d = diverges(f.func, f.type, f.it, &z, &c);
+	if(d)
+		col = color(d + 150, 0, d + 150, 0);
 	else
 		col = 0x00000000;
 	return (col);
