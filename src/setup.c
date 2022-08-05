@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 02:46:35 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 04:13:37 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,18 @@ int	setup(t_fract *fract, int width, int height)
 	fract->szoom = 4;
 	fract->it = 100;
 	fract->func = znc;
-	update_world(fract);
+	fract->julia_init.r = 0.355;
+	fract->julia_init.i = 0.355;
 	return (0);
 }
 
-void	print_info(t_mlx mlx, t_img img)
+void	print_info(t_fract fract)
 {
+	t_mlx	mlx;;
+	t_img	img;
+	
+	mlx = *fract.mlx;
+	img = *fract.img;
 	ft_printf("WELCOME TO THE WOLD OF:\n");
 	ft_printf("███████╗██████╗░░█████╗░░█████╗░╗░█████╗░░░░ █████  ██╗░░░░░\n");
 	ft_printf("██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝ ░░██╔══██╗██║░░░░░\n");
@@ -73,11 +79,18 @@ void	print_info(t_mlx mlx, t_img img)
 	ft_printf("██║░░░░░██║░░██║██║░░██║╚█████╔╝░░░██║░░░░░░╚█████╔╝███████╗\n");
 	ft_printf("╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░░░░╚════╝░╚══════╝\n");
 	ft_printf("------------------------------------------------------------\n");
+	if (fract.type == JULIA)
+		ft_printf("Rendering a JULIA like fractal!\n");
+	else if (fract.type == MANDELBROT)
+		ft_printf("Rendering a MANDELBROT like fractal!\n");
 	ft_printf("\nUseful INFO:\n\n");
 	ft_printf("Window Width: %d\n", mlx.win_w);
 	ft_printf("Window Height: %d\n", mlx.win_h);
 	ft_printf("Image BPP: %d\n", img.bpp);
 	ft_printf("Image Line Size: %d\n", img.line_size);
+	ft_printf("TODO: Initial Zoom: %f\n", fract.zoom);
+	ft_printf("TODO: Initial Iterations: %f\n", fract.it);
+	ft_printf("TODO: Initial exp: %d\n", fract.exp);
 	if (img.endi == FT_LITTLE_ENDIAN)
 		ft_printf("Little Endian");
 	else

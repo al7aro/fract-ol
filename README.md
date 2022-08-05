@@ -2,9 +2,11 @@
 
 Fractal explorer
 
+- [ ] NORMA NORMA NORMA NORMA NORMA NORMA NORMA
+- [ ] Go to place
 - [ ] ATOF
 - [ ] Parseo de argumentos
-	- [ ] Nombre del fractal
+	- [x] Nombre del fractal
 	- [ ] Condiciones iniciales del fractal 
 - [x] SCREEN coords TO WORLD coords
 - [ ] Reorganizar ciertas partes del codigo

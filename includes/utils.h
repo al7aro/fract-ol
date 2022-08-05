@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:18:33 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 20:49:05 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:53:43 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 t_vec2	screen_to_world(t_fract f, int x, int y);
 void	update_world(t_fract *f);
 int		setup(t_fract *fract, int width, int height);
-void	print_info(t_mlx mlx, t_img img);
+void	print_info(t_fract fract);
 int		color(unsigned char r, unsigned char g, unsigned char b,
 			unsigned char a);
 int		pixel_buffer_put(t_img *img, int x, int y, int color);
