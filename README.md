@@ -2,6 +2,7 @@
 
 Fractal explorer
 
+- [ ] ATOF
 - [ ] Parseo de argumentos
 	- [ ] Nombre del fractal
 	- [ ] Condiciones iniciales del fractal 

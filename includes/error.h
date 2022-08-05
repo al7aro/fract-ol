@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   err.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/25 14:12:24 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 02:32:21 by alopez-g         ###   ########.fr       */
+/*   Created: 2022/08/05 02:16:40 by alopez-g          #+#    #+#             */
+/*   Updated: 2022/08/05 02:26:22 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+typedef enum e_err
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
-}
-
-char	*ft_strtolower(char *str)
-{
-	char	*t;
-
-	t = str;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		*str = ft_tolower(*str);
-		str++;
-	}
-	return (t);
-}
+	INVALID_ARGUMENT,
+	OK
+}			t_err;

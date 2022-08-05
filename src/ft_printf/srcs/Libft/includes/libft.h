@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 08:06:08 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/07/27 21:17:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:33:08 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+char				*ft_strtolower(char *str);
 int					ft_isprint(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);

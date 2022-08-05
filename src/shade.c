@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:33:17 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:46:30 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 	return (color);
 }
 
-int	diverges(t_vec2 (*func)(), int type, int it, void *init_z, void *init_c)
+int	diverges(t_vec2 (*func)(), t_fractal type, int it, void *init_z, void *init_c)
 {
 	t_vec2			z;
 	t_vec2			c;

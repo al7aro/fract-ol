@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:28:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:46:35 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	setup(t_fract *fract, int width, int height)
 	fract->zoom = 100;
 	fract->szoom = 4;
 	fract->it = 100;
-	fract->type = MANDELBROT;
 	fract->func = znc;
 	update_world(fract);
 	return (0);

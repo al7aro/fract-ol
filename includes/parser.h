@@ -6,8 +6,9 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:58:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:59:15 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:15:52 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	usage();
 int	parse_args(int argc, char **argv, t_fract *f);

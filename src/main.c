@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 00:08:35 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:28:30 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 #include "utils.h"
 #include "hooks.h"
 #include "parser.h"
+#include "error.h"
 #define FT_WIDTH 500
 #define FT_HEIGHT 500
 
-void	exit_status(int status)
+void	exit_status(t_err status)
 {
+	if (status == INVALID_ARGUMENT)
+		usage();
 	exit(status);
 }
 
@@ -38,10 +41,10 @@ int	main(int argc, char **argv)
 
 	fract.mlx = &mlx;
 	fract.img = &main_buffer;
-	if (parse_args(argc, argv, &fract))
-		exit_status(0);
+	if (parse_args(argc, argv, &fract) != OK)
+		exit_status(INVALID_ARGUMENT);
 	if (setup(&fract, FT_WIDTH, FT_HEIGHT))
-		exit_status(0);
+		exit_status(OK);
 	print_info(mlx, main_buffer);
 	mlx_hook(mlx.win, 17, 0, clean_exit, NULL);
 	mlx_hook(mlx.win, 2, 0, key_pressed, &fract);

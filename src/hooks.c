@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 23:42:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 01:43:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	key_pressed(int keycode, void *param)
 
 int	mouse_pressed(int button, int x, int y, void *param)
 {
-	t_fract *f;
-	t_vec2	w;
-	int		prev_zoom;
+	t_fract			*f;
+	t_vec2			w;
+	long	double	prev_zoom;
 
 	f = (t_fract *)param;
 	w = screen_to_world(*f, x, y);
