@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 20:47:56 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 13:36:14 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@
  * 2 B
  * 3 A
  * */
-int	pixel_buffer_put(t_img *img, int x, int y, int color)
+int	pixel_buffer_put(t_img *img, int x, int y, int c)
 {
 	int	first_char;
 
 	first_char = x * (img->bpp / 8) + y * img->line_size;
-	*(img->buffer + first_char + 0) = (char)((color & 0x000000FF) >> 0);
-	*(img->buffer + first_char + 1) = (char)((color & 0x0000FF00) >> 8);
-	*(img->buffer + first_char + 2) = (char)((color & 0x00FF0000) >> 16);
-	*(img->buffer + first_char + 3) = (char)((color & 0xFF000000) >> 24);
+	*(img->buffer + first_char + 0) = (char)((c & 0x000000FF) >> 0);
+	*(img->buffer + first_char + 1) = (char)((c & 0x0000FF00) >> 8);
+	*(img->buffer + first_char + 2) = (char)((c & 0x00FF0000) >> 16);
+	*(img->buffer + first_char + 3) = (char)((c & 0xFF000000) >> 24);
 	return (0);
 }
 
 int	push_frame_to_img(void **param)
 {
+	int		col;
 	int		x;
 	int		y;
 	t_fract	*f;
@@ -49,7 +50,11 @@ int	push_frame_to_img(void **param)
 	{
 		x = -1;
 		while (++x < img->img_w)
-			pixel_buffer_put(img, x, y, shade(x, y, *f));
+		{
+			if (!(x % f->render_factor))
+				col = shade(x, y, *f);
+			pixel_buffer_put(img, x, y, col);
+		}
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->win, img->img, 0, 0);
 	return (0);

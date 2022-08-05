@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 04:15:56 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:13:23 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "fractol.h"
 #include "ft_printf.h"
 #include "ft_math.h"
+#include <math.h>
 
 /*
  * Little endian:
@@ -29,6 +30,45 @@ int	color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 	color |= ((0x000000FF & r) << 16);
 	color |= ((0x000000FF & g) << 8);
 	color |= (0x000000FF & b);
+	return (color);
+}
+
+int	color_normal(long double c)
+{
+	int		color;
+	//0.0;	//white
+	//0.25;	//red
+	//0.5;	//green
+	//0.75;	//blue
+	//1.0;	//white
+
+	color = 0;
+	if (c >= 0.0 && c <= 0.25)
+	{
+		c /= 0.25; //1-c porcentaje de blanco
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+		color |= ((0x000000FF & (unsigned char)(c * 255)));
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
+	}
+	else if (c > 0.25 && c <= 0.5)
+	{
+		c = (c - 0.25) / 0.25;
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+	}
+	else if (c > 0.5 && c <= 0.75)
+	{
+		c = (c - 0.5) / 0.25;
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+		color |= ((0x000000FF & (unsigned char)(c * 255)));
+	}
+	else if (c > 0.75 && c <= 1.0)
+	{
+		c = (c - 0.75) / 0.25;
+		color |= ((0x000000FF & (unsigned char)(c * 255)));
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
+		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+	}
 	return (color);
 }
 

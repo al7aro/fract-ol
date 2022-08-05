@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 01:43:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 13:50:16 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	key_pressed(int keycode, void *param)
 		f->it += log10(f->zoom);
 	else if (keycode == MINUS)
 		f->it -= log10(f->zoom);
+	else if (keycode == DEL)
+		f->render_factor++;
+	else if (keycode == INTRO)
+		if (f->render_factor > 1)
+			f->render_factor--;
 	update_world(f);
 	return (0);
 }
