@@ -8,11 +8,16 @@ Fractal explorer
 - [ ] Parseo de argumentos
 	- [x] Nombre del fractal
 	- [ ] Condiciones iniciales del fractal 
-- [x] SCREEN coords TO WORLD coords
 - [ ] Reorganizar ciertas partes del codigo
+- [ ] Mapear el numero de iteraciones a una paleta de colores
+- [ ] Menu lateral - Botones y colision mouse/boton
+- [ ] Botones para ir a sitios cool del fractal
+- [ ] Crear una estructura con las opciones de comando disponibles para usar
+- [ ] Check-option
+- [ ]
+- [x] SCREEN coords TO WORLD coords
 - [x] Hacer que el zoom siga el raton sin irse al centro
 - [x] Anadir el resto de fractales obligatorios
-- [ ] Mapear el numero de iteraciones a una paleta de colores
 
 ## OPTIONAL
 ---

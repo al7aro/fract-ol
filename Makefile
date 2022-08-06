@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/04 23:59:57 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/06 18:06:24 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,11 +58,12 @@ I 				= $(patsubst %.h, $(I_DIR)/%.h, $(I_H))
 
 #---------- SRC ----------
 SRC_DIR 		= $(DIR)/src
-#SRC_1 			= $(SRC_DIR)/colors
+SRC_PARSER 		= $(SRC_DIR)/parser
 #SRC_2 			= $(SRC_DIR)/instr
-#SRC_1_C 		= color.c
+SRC_PARSER_C 		= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
+			  n_parser.c ri_parser.c z_parser.c
 #SRC_2_C 		= exec.c s.c p.c r.c rr.c 
-SRC_FRACTOL_C 		= main.c parser.c fractal.c math.c setup.c hooks.c fill_color.c shade.c
+SRC_FRACTOL_C 		= main.c fractal.c math.c setup.c hooks.c fill_color.c shade.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
 					$(patsubst %.c, $(SRC_1)/%.c, $(SRC_1_C)) \
 					$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)) 
@@ -73,8 +74,8 @@ OBJ_PS 			= $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, \
 		 			$(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)))
 OBJ_INSTR 		= $(patsubst $(SRC_2)/%.c, $(BUILD_DIR)/%.o, \
 					$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)))
-OBJ_COLOR 		= $(patsubst $(SRC_1)/%.c, $(BUILD_DIR)/%.o, \
-					$(patsubst %.c, $(SRC_1)/%.c, $(SRC_1_C)))
+OBJ_COLOR 		= $(patsubst $(SRC_PARSER)/%.c, $(BUILD_DIR)/%.o, \
+					$(patsubst %.c, $(SRC_PARSER)/%.c, $(SRC_PARSER_C)))
 OBJ 			= $(OBJ_PS) $(OBJ_INSTR) $(OBJ_COLOR)
 
 #---------- FLAGS ----------
@@ -87,7 +88,7 @@ $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c
 				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 $(BUILD_DIR)/%.o : $(SRC_2)/%.c
 				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
-$(BUILD_DIR)/%.o : $(SRC_1)/%.c
+$(BUILD_DIR)/%.o : $(SRC_PARSER)/%.c
 				@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 #-------------------------------------------------------------------------------
 

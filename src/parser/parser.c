@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 14:40:20 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:05:24 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 #include "error.h"
-
-
-void	render_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify render detail.\n");
-	ft_printf("Default: 1\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-void	zoom_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify initial ZOOM\n");
-	ft_printf("Default: 100\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-
-void	iter_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify initial number of ITERATIONS to use when func is used\n");
-	ft_printf("Default: 100\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-
-void	center_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify inital CENTER of image to use when func is used\n");
-	ft_printf("Default: [0, 0]\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-
-void	ri_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Set initial conditions of a Julia like fractal\n");
-	ft_printf("\t-r\t\tSet real part\n");
-	ft_printf("\t-i\t\tSet imaginary part\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-
-void	exp_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify N to use when func is used\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
-
-void	func_usage()
-{
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
-	ft_printf("Specify the function to use to calculate fractal, limited to:\n");
-	ft_printf("\tznc\t\tz^n + c. Default n = 2\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
-}
+#include "parser.h"
 
 void	usage()
 {

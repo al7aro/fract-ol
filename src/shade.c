@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 16:13:23 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:52:57 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ int	shade(int x, int y, t_fract f)
 	z.i = f.julia_init.i;
 	d = diverges(f.func, f.type, f.it, &z, &c);
 	if(d)
-		col = color(d + 150, d + 150, d + 150, 0);
+		//col = color(d + 150, d + 150, d + 150, 0);
+		col = color_normal(d / f.it);
 	else
 		col = 0x00000000;
 	return (col);
