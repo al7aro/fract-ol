@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:58:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/06 18:22:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:23:17 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ typedef enum e_opt
 	C = 7
 }		t_opt;
 
-void	usage();
+t_err	usage();
+t_err	type_usage(t_err err);
 void	render_usage();
-void	render_check(t_fract *f);
 void	zoom_usage();
-void	zoom_usage(t_fract *f);
 void	iter_usage();
-void	iter_check(t_fract *f);
 void	center_usage();
-void	center_check(t_fract *f);
 void	ri_usage();
-void	ri_check(t_fract *f);
 void	exp_usage();
-void	exp_check(t_fract *f);
 void	func_usage();
-void	func_check(t_fract *f);
+t_err	type_check(int argc, char **argv, t_fract *f);
+t_err	render_check(int argc, char **argv, t_fract *f);
+t_err	zoom_check(int argc, char **argv, t_fract *f);
+t_err	iter_check(int argc, char **argv, t_fract *f);
+t_err	center_check(int argc, char **argv, t_fract *f);
+t_err	r_check(int argc, char **argv, t_fract *f);
+t_err	i_check(int argc, char **argv, t_fract *f);
+t_err	exp_check(int argc, char **argv, t_fract *f);
+t_err	func_check(int argc, char **argv, t_fract *f);
 t_err	parse_args(int argc, char **argv, t_fract *f);
 
 #endif

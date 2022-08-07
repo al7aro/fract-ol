@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/06 18:05:24 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:42:30 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,48 @@
 #include "error.h"
 #include "parser.h"
 
-void	usage()
+t_err	usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type [-d render] [-f func] [-e exp] [-r real] [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
+	ft_printf("usage: fract-ol fractal_type ");
+	ft_printf("[-d render] [-f func] [-e exp] \n[-r real] ");
+	ft_printf("[-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
 	ft_printf("Options:\n");
-	ft_printf("\tfractal_type --help\tDisplays available fractals\n");
-	ft_printf("\t-d --help\t\tDisplays render_factor info\n");
-	ft_printf("\t-f --help\t\tDisplays func info\n");
-	ft_printf("\t-e --help\t\tDisplays exp info\n");
-	ft_printf("\t-r --help\t\tDisplays real info\n");
-	ft_printf("\t-i --help\t\tDisplays imag info\n");
-	ft_printf("\t-z --help\t\tDisplays zoom info\n");
-	ft_printf("\t-n --help\t\tDisplays iter info\n");
-	ft_printf("\t-c --help\t\tDisplays center info\n");
-	ft_printf("\t--help\t\t\tDisplays this menu\n");
+	ft_printf("Each of the following options varies depending");
+	ft_printf(" on fractal_type\n");
+	ft_printf("\tfractals --help\t\t\tDisplays available fractals\n");
+	ft_printf("\tfractal_type -d --help\t\tDisplays render_factor info\n");
+	ft_printf("\tfractal_type -f --help\t\tDisplays func info\n");
+	ft_printf("\tfractal_type -e --help\t\tDisplays exp info\n");
+	ft_printf("\tfractal_type -r --help\t\tDisplays real info\n");
+	ft_printf("\tfractal_type -i --help\t\tDisplays imag info\n");
+	ft_printf("\tfractal_type -z --help\t\tDisplays zoom info\n");
+	ft_printf("\tfractal_type -n --help\t\tDisplays iter info\n");
+	ft_printf("\tfractal_type -c --help\t\tDisplays center info\n");
+	ft_printf("\tfractal_type --help\t\tDisplays more info about");
+	ft_printf(" a specyfic fractal\n");
+	ft_printf("\n\t--help\t\t\t\tDisplays this menu\n");
+	return (INVALID_ARGUMENT);
+}
+
+char	char_is(char c, char *str)
+{
+	while (*str)
+	{
+		if (*str == c)
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
+t_err	valid(int argc, char **argv)
+{
+	(void)argc;
+	if (**argv != '-')
+		return (INVALID_ARGUMENT);
+	if (**argv == '-' && !char_is(*(*argv + 1), "dferiznec"))
+		return (INVALID_ARGUMENT);
+	return (OK);
 }
 
 /*
@@ -37,71 +65,32 @@ void	usage()
  * */
 t_err	parse_args(int argc, char **argv, t_fract *f)
 {
-	f->type = KO;
+	t_err	err;
+
 	argv++;
-	if (argc == 1)
-		return (INVALID_ARGUMENT);
-	if (!ft_strncmp(ft_strtolower(*argv), "mandelbrot", 11) || (**argv == 'm' && ft_strlen(*argv) == 1))
-		f->type = MANDELBROT;
-	else if (!ft_strncmp(ft_strtolower(*argv), "julia", 6) || (**argv == 'j' && ft_strlen(*argv) == 1))
-		f->type = JULIA;
-	else
-		return (INVALID_ARGUMENT);
+	err = type_check(argc, argv, f);
+	if (err == INVALID_ARGUMENT)
+		return (usage());
+	else if (err != OK) 
+		return (type_usage(err));
 	argv++;
 	while (*argv)
 	{
-		if (**argv == '-' && *(*argv + 1) == 'd' && ft_strlen(*argv + 1) == 1)
+		if (valid(argc, argv) != OK)
 		{
-			if (!ft_strisdigit(*(++argv)) || *(*argv) == 48)
-				return (INVALID_ARGUMENT);
-			f->render_factor = ft_atoi(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'f' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisalpha(*(++argv)))
-				return (INVALID_ARGUMENT);
-			ft_printf("Check -f");
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'e' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisdigit(*(++argv)) || *(*argv) == 48)
-				return (INVALID_ARGUMENT);
-			f->exp = ft_atoi(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'z' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisdigit(*(++argv)))
-				return (INVALID_ARGUMENT);
-			f->zoom = ft_atoi(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'n' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisdigit(*(++argv)))
-				return (INVALID_ARGUMENT);
-			f->it = ft_atoi(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'c' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisfdigit(*(++argv)) || !ft_strisfdigit(*(++argv)))
-				return (INVALID_ARGUMENT);
-			//f->center[0] = ft_atof(*argv - 1);
-			//f->center[0] = ft_atof(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'r' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisfdigit(*(++argv)))
-				return (INVALID_ARGUMENT);
-			//f->real = ft_atof(*argv);
-		}
-		else if (**argv == '-' && *(*argv + 1) == 'i' && ft_strlen(*argv + 1) == 1)
-		{
-			if (!ft_strisfdigit(*(++argv)))
-				return (INVALID_ARGUMENT);
-			//f->imag = ft_atof(*argv);
-		}
-		else
+			usage();
 			return (INVALID_ARGUMENT);
-		argv++;
+		}
+		if (render_check(argc, argv, f) != OK
+			|| func_check(argc, argv, f) != OK
+			|| exp_check(argc, argv, f) != OK
+			|| zoom_check(argc, argv, f) != OK
+			|| iter_check(argc, argv, f) != OK
+			|| center_check(argc, argv, f) != OK
+			|| r_check(argc, argv, f) != OK
+			|| i_check(argc, argv, f) != OK)
+			return (INVALID_ARGUMENT);
+		argv += 2;
 	}
 	return (OK);
 }

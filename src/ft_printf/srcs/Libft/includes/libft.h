@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                      |*---------------------*|   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 08:06:08 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 03:20:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 18:03:54 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int					ft_isdigit(int c);
 int					ft_strisdigit(char *c);
 int					ft_strisfdigit(char *c);
 int					ft_isalpha(int c);
-int					ft_strisalpha(char* c);
+int					ft_strisalpha(char *c);
 int					ft_isalnum(int c);
 int					ft_atoi(const char *str);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

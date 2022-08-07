@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 13:52:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:56:59 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ t_vec2	screen_to_world(t_fract f, int x, int y)
 {
 	t_vec2	c;
 
-	c.r = ((double)x / (double)f.img->img_w * (f.world[2] - f.world[0])) + f.world[0];
-	c.i = ((double)y / (double)f.img->img_h * (f.world[3] - f.world[1])) + f.world[1];
+	c.r = ((double)x / (double)f.img->img_w
+			* (f.world[2] - f.world[0])) + f.world[0];
+	c.i = ((double)y / (double)f.img->img_h
+			* (f.world[3] - f.world[1])) + f.world[1];
 	return (c);
 }
 
 void	update_world(t_fract *f)
 {
-	f->world[0] = f->center[0] - ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-    f->world[1] = -f->center[1] + (IY0 / f->zoom);
-    f->world[2] = f->center[0] + ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-    f->world[3] = -f->center[1] + (IY1 / f->zoom);
+	f->world[0] = f->center[0]
+		- ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
+	f->world[1] = -f->center[1] + (IY0 / f->zoom);
+	f->world[2] = f->center[0]
+		+ ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
+	f->world[3] = -f->center[1] + (IY1 / f->zoom);
 }
 
 int	setup(t_fract *fract, int width, int height)
@@ -53,23 +57,14 @@ int	setup(t_fract *fract, int width, int height)
 	img->buffer = mlx_get_data_addr(img->img,
 			&(img->bpp), &(img->line_size), &(img->endi));
 	img->aspect = (double)width / (double)height;
-	fract->center[0] = 0.0;
-	fract->center[1] = 0.0;
-	fract->zoom = 100;
-	fract->szoom = 4;
-	fract->it = 100;
-	fract->func = znc;
-	fract->julia_init.r = 0.355;
-	fract->julia_init.i = 0.355;
-	fract->render_factor = 1;
 	return (0);
 }
 
 void	print_info(t_fract fract)
 {
-	t_mlx	mlx;;
+	t_mlx	mlx;
 	t_img	img;
-	
+
 	mlx = *fract.mlx;
 	img = *fract.img;
 	ft_printf("WELCOME TO THE WOLD OF:\n");
