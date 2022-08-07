@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 19:42:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:44:51 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_err	usage(void)
 	ft_printf("Options:\n");
 	ft_printf("Each of the following options varies depending");
 	ft_printf(" on fractal_type\n");
-	ft_printf("\tfractals --help\t\t\tDisplays available fractals\n");
+	ft_printf("\tfractals --help\t\t\tDisplays available fractal_type\n");
 	ft_printf("\tfractal_type -d --help\t\tDisplays render_factor info\n");
 	ft_printf("\tfractal_type -f --help\t\tDisplays func info\n");
 	ft_printf("\tfractal_type -e --help\t\tDisplays exp info\n");
