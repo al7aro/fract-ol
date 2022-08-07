@@ -1,6 +1,7 @@
 # fract-ol
 
 Fractal explorer
+
 Tutorial:
 
 zoom 			| use mouse SCROLL
@@ -8,6 +9,8 @@ zoom 			| use mouse SCROLL
 change iterations 	| MINUS button and PLUS button
 
 change render scale	| DEL button and INTRO button
+
+---
 
 - [ ] NORMA NORMA NORMA NORMA NORMA NORMA NORMA
 - [ ] Go to place
