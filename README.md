@@ -1,6 +1,4 @@
-# fract-ol
-
-Fractal explorer
+# fract-ol - Fractal explorer
 
 Tutorial:
 
