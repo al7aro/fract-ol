@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                     |*---------------------*|    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:06:37 by aloez-g           #+#    #+#              #
-#    Updated: 2022/07/27 21:02:07 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/07 20:17:38 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRC			=	${SRC_DIR}/ft_memset.c				${SRC_DIR}/ft_bzero.c \
 				${SRC_DIR}/ft_lstsize_bonus.c 		${SRC_DIR}/ft_lstlast_bonus.c \
 				${SRC_DIR}/ft_lstadd_back_bonus.c	${SRC_DIR}/ft_lstdelone_bonus.c \
 				${SRC_DIR}/ft_lstclear_bonus.c 		${SRC_DIR}/ft_lstiter_bonus.c \
-				${SRC_DIR}/ft_lstmap_bonus.c		${SRC_DIR}/ft_lstdelrange_bonus.c
+				${SRC_DIR}/ft_lstmap_bonus.c		${SRC_DIR}/ft_lstdelrange_bonus.c \
+				${SRC_DIR}/ft_atof.c
 
 BUILD_DIR	=	$(SRC_DIR)/build
 OBJS		= 	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))

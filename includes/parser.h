@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:58:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 19:23:17 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 20:34:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ t_err	render_check(int argc, char **argv, t_fract *f);
 t_err	zoom_check(int argc, char **argv, t_fract *f);
 t_err	iter_check(int argc, char **argv, t_fract *f);
 t_err	center_check(int argc, char **argv, t_fract *f);
-t_err	r_check(int argc, char **argv, t_fract *f);
-t_err	i_check(int argc, char **argv, t_fract *f);
+t_err	ri_check(int argc, char **argv, t_fract *f);
 t_err	exp_check(int argc, char **argv, t_fract *f);
 t_err	func_check(int argc, char **argv, t_fract *f);
 t_err	parse_args(int argc, char **argv, t_fract *f);

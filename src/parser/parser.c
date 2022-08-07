@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 19:44:51 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 20:35:57 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ t_err	parse_args(int argc, char **argv, t_fract *f)
 			|| zoom_check(argc, argv, f) != OK
 			|| iter_check(argc, argv, f) != OK
 			|| center_check(argc, argv, f) != OK
-			|| r_check(argc, argv, f) != OK
-			|| i_check(argc, argv, f) != OK)
+			|| ri_check(argc, argv, f) != OK)
 			return (INVALID_ARGUMENT);
 		argv += 2;
 	}

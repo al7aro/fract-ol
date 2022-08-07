@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:54 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 18:54:00 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 20:37:23 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,7 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-t_err	r_check(int argc, char **argv, t_fract *f)
-{
-	(void)argc;
-	(void)f;
-	if (**argv == '-' && *(*argv + 1) == 'r' && ft_strlen(*argv + 1) == 1)
-	{
-		if (!ft_strisfdigit(*(argv + 1)))
-		{
-			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
-				ri_usage();
-			else
-				usage();
-			return (INVALID_ARGUMENT);
-		}
-	}
-	return (OK);
-}
-
-t_err	i_check(int argc, char **argv, t_fract *f)
+t_err	ri_check(int argc, char **argv, t_fract *f)
 {
 	(void)argc;
 	(void)f;

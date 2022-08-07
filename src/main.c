@@ -6,11 +6,12 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 18:36:39 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/07 20:31:26 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+#include "libft.h"
 #include "ft_printf.h"
 #include "fractol.h"
 #include "utils.h"
@@ -20,9 +21,12 @@
 #define FT_WIDTH 700
 #define FT_HEIGHT 700
 
+#include <stdio.h>
+
 void	exit_status(t_err status)
 {
-	exit(status);
+	if (status == INVALID_ARGUMENT)
+		exit(1);
 }
 
 int	clean_exit(void *param)
