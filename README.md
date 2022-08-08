@@ -10,8 +10,6 @@ change render scale	| DEL button and INTRO button
 
 ---
 
-SI, YA SE QUE LAS IMAGENES DE MUESTRA SON FEAS
-
 ![Alt Text](renders/r0.png)
 ![Alt Text](renders/r1.png)
 ![Alt Text](renders/r2.png)
