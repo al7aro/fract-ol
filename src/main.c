@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 20:53:29 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 21:02:14 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "hooks.h"
 #include "parser.h"
 #include "error.h"
-#define FT_WIDTH 1080
+#define FT_WIDTH 720
 #define FT_HEIGHT 720
 
 #include <stdio.h>
