@@ -6,13 +6,14 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 15:28:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:30:00 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "fractol.h"
 #include "shade.h"
+#include "utils.h"
 #include "ft_printf.h"
 
 /*
