@@ -10,6 +10,8 @@ change render scale	| DEL button and INTRO button
 
 ---
 
+- [ ] SOLUCIONAR PROBLEMAS DE COLOR ANTES DE SEGUIR CON EL P PARSEO
+
 - [ ] Arreglar cuando solo se introduce un numero en -i y -c
 - [ ] Arreglar cuando solo se introduce la letra de un comando seguida de otra (-ix)
 - [ ] Arreglar y organizar el parseo de mierda por dios
