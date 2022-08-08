@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 16:31:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 20:47:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,72 +36,61 @@ int	color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 
 int	color_normal(long double c)
 {
-	int		color;
-	//0.0;	//white
-	//0.25;	//red
-	//0.5;	//green
-	//0.75;	//blue
-	//1.0;	//white
-
-	color = 0;
+	if (c < 0)
+		return (color(0, 0, 0, 0));
 	if (c >= 0.0 && c <= 0.25)
 	{
-		c /= 0.25; //1-c porcentaje de blanco
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
-		color |= ((0x000000FF & (unsigned char)(c * 255)));
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
+		c /= 0.25;
+		return color(255, 255 * (1 - c), 255 * (1 - c), 1);
 	}
 	else if (c > 0.25 && c <= 0.5)
 	{
 		c = (c - 0.25) / 0.25;
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+		return color(255 * (1 - c), 255 * c, 0, 1);
 	}
 	else if (c > 0.5 && c <= 0.75)
 	{
 		c = (c - 0.5) / 0.25;
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
-		color |= ((0x000000FF & (unsigned char)(c * 255)));
+		return color(0, 255 * (1 - c), 255 * c, 1);
 	}
 	else if (c > 0.75 && c <= 1.0)
 	{
 		c = (c - 0.75) / 0.25;
-		color |= ((0x000000FF & (unsigned char)(c * 255)));
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 16);
-		color |= ((0x000000FF & (unsigned char)(c * 255)) << 8);
+		return color(255 * c, 255 * c, 255, 1);
 	}
-	return (color);
+	return (color(255, 255, 255, 0));
 }
 
-int	diverges(t_vec2 (*func)(), t_fractal type, int it, void *init_z, void *init_c)
+int	diverges(t_fract f, void *init_z, void *init_c)
 {
 	t_vec2		z;
 	t_vec2		c;
 	int		i_cnt;
 	long double	l;
-
+	t_vec2 		(*func)();
+	
+	func = f.func;
 	i_cnt = 0;
 	l = 0;
-	if (type == MANDELBROT)
+	if (f.type == MANDELBROT)
 	{
 		z.r = 0;
 		z.i = 0;
 		c = *((t_vec2 *)(init_c));
 	}
-	else if (type == JULIA)
+	else if (f.type == JULIA)
 	{	
 		z = *((t_vec2 *)(init_c));
 		c = *((t_vec2 *)(init_z));
 	}
-	while ((i_cnt++ < it) && l < 2)
+	while ((i_cnt++ < f.it) && l < 2)
 	{
 		z = func(z, c, 0);
 		l = ft_length(z.r, z.i);
-		(void)l;
 	}
 	if (l > 2)
 		return (i_cnt);
-	return (0);
+	return (-1);
 }
 
 /*
@@ -118,21 +107,18 @@ int	diverges(t_vec2 (*func)(), t_fractal type, int it, void *init_z, void *init_
  * */
 int	shade(int x, int y, t_fract f)
 {
-	int		col;
+	long double	col;
 	int		d;	
-	t_vec2	z;
-	t_vec2	c;
+	t_vec2		z;
+	t_vec2		c;
 	
 	c.r = ((double)x / (double)f.img->img_w * (f.world[2] - f.world[0])) + f.world[0];
 	c.i = ((double)y / (double)f.img->img_h * (f.world[3] - f.world[1])) + f.world[1];
 	z.r = f.julia_init.r;
 	z.i = f.julia_init.i;
-	d = diverges(f.func, f.type, f.it, &z, &c);
-	if(d)
-		//col = color(d + 150, d + 150, d + 150, 0);
-		//col = color_normal(d / f.it);
-		col = color((d / f.it) * 255, (d / f.it) * 255, (d / f.it) * 255, 0);
-	else
-		col = 0x00000000;
-	return (col);
+	d = diverges(f, &z, &c);
+	col = d / f.it;
+	if (col < 0)
+		return 0;
+	return (color_normal(col));
 }
