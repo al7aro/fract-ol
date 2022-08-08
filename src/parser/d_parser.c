@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 13:10:52 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:05:05 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	render_check(int argc, char **argv, t_fract *f, t_opt *opt)
 	(void)argc;
 	if (**argv == '-' && *(*argv + 1) == 'd' && ft_strlen(*argv + 1) == 1)
 	{
-		if (!ft_strisdigit(*(++argv)) || *(*argv) == 48)
+		if (!ft_strisdigit(*(argv + 1)))
 		{
 			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
 				render_usage();
 			else
 				usage();
 		}
-		f->render_factor = ft_atoi(*argv);
+		f->render_factor = ft_atoi(*(argv + 1));
 		opt->D = 2;
 		opt->cnt = opt->D;
 	}

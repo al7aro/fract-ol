@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 13:58:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:12:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	usage(void)
 	ft_printf("\tfrac_type -d --help\tDisplays render info\t\tm && j\n");
 	ft_printf("\tfrac_type -f --help\tDisplays func info\t\tm && f\n");
 	ft_printf("\tfrac_type -e --help\tDisplays exp info\t\tm && f\n");
-	ft_printf("\tfrac_type -r --help\tDisplays real info\t\tj\n");
 	ft_printf("\tfrac_type -i --help\tDisplays imag info\t\tj\n");
 	ft_printf("\tfrac_type -z --help\tDisplays zoom info\t\tm && j\n");
 	ft_printf("\tfrac_type -n --help\tDisplays iter info\t\tm\n");
@@ -55,7 +54,7 @@ void	valid(int argc, char **argv)
 	(void)argc;
 	if (**argv != '-')
 		usage();
-	if (**argv == '-' && !char_is(*(*argv + 1), "dferiznec"))
+	if (**argv == '-' && !char_is(*(*argv + 1), "dfeiznec"))
 		usage();
 }
 

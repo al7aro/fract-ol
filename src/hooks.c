@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 17:29:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:15:47 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "utils.h"
 #include "ft_math.h"
 #include "temp.h"
+
+#include <stdio.h>
 
 int	key_pressed(int keycode, void *param)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.h                                         :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 13:55:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:26:59 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,33 @@ typedef enum e_fractal
 	JULIA,
 	MANDELBROT,
 	KO
-}			t_fractal;
+}		t_fractal;
 
 typedef struct s_img
 {
 	char	*buffer;
 	void	*img;
-	int		bpp;
-	int		line_size;
-	int		endi;
-	int		img_w;
-	int		img_h;
+	int	bpp;
+	int	line_size;
+	int	endi;
+	int	img_w;
+	int	img_h;
 	double	aspect;
-}				t_img;
+}		t_img;
 
 typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-	int		win_w;
-	int		win_h;
-}				t_mlx;
+	int	win_w;
+	int	win_h;
+}		t_mlx;
 
 typedef struct s_fract
 {
 	t_mlx		*mlx;
 	t_img		*img;
+	t_img		*menu;
 	double		center[2];
 	double		world[4];
 	double		zoom;
@@ -61,10 +62,10 @@ typedef struct s_fract
 	t_fractal	type;
 	void		*func;
 	double		it;
-	int			exp;
+	int		exp;
 	t_vec2		julia_init;
-	int			render_factor;
-}				t_fract;
+	int		render_factor;
+}			t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
 

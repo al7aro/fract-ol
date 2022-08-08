@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 15:28:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:16:53 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ int	pixel_buffer_put(t_img *img, int x, int y, int c)
 	return (0);
 }
 
-int	render_fractal(t_fract *f)
+int	push_frame_to_img(t_fract *f)
 {
 	int		col;
 	int		x;
 	int		y;
+	t_mlx	*mlx;
 	t_img	*img;
 
+	mlx = f->mlx;
 	img = f->img;
 	y = -1;
 	while (++y < img->img_h)
@@ -52,6 +54,7 @@ int	render_fractal(t_fract *f)
 			pixel_buffer_put(img, x, y, col);
 		}
 	}
+	mlx_put_image_to_window(mlx->mlx, mlx->win, img->img, 0, 0);
 	return (0);
 }
 
@@ -60,10 +63,6 @@ int	on_loop(void **param)
 	t_fract	*f;
 
 	f = ((t_fract *)param);
-	render_fractal(f);
-	if (f->img)
-		mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->img->img, 0, 0);
-	if (f->menu)
-		mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->menu->img, 0, 0);
+	push_frame_to_img(f);
 	return (0);
 }

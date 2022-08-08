@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 17:52:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:16:36 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ft_printf.h"
 #include "ft_math.h"
 #include <math.h>
+#include <stdio.h>
 
 /*
  * Little endian:
@@ -74,11 +75,13 @@ int	color_normal(long double c)
 
 int	diverges(t_vec2 (*func)(), t_fractal type, int it, void *init_z, void *init_c)
 {
-	t_vec2			z;
-	t_vec2			c;
-	int				i_cnt;
+	t_vec2		z;
+	t_vec2		c;
+	int		i_cnt;
+	long double	l;
 
 	i_cnt = 0;
+	l = 0;
 	if (type == MANDELBROT)
 	{
 		z.r = 0;
@@ -90,9 +93,13 @@ int	diverges(t_vec2 (*func)(), t_fractal type, int it, void *init_z, void *init_
 		z = *((t_vec2 *)(init_c));
 		c = *((t_vec2 *)(init_z));
 	}
-	while ((i_cnt++ < it) && z.r < 2.0 && z.i < 2.0)
+	while ((i_cnt++ < it) && l < 2)
+	{
 		z = func(z, c, 0);
-	if (z.r > 2.0 || z.i > 2.0)
+		l = ft_length(z.r, z.i);
+		(void)l;
+	}
+	if (l > 2)
 		return (i_cnt);
 	return (0);
 }
@@ -123,7 +130,8 @@ int	shade(int x, int y, t_fract f)
 	d = diverges(f.func, f.type, f.it, &z, &c);
 	if(d)
 		//col = color(d + 150, d + 150, d + 150, 0);
-		col = color_normal(d / f.it);
+		//col = color_normal(d / f.it);
+		col = color((d / f.it) * 255, (d / f.it) * 255, (d / f.it) * 255, 0);
 	else
 		col = 0x00000000;
 	return (col);

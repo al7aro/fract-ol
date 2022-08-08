@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 20:31:26 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:27:44 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	clean_exit(void *param)
 
 void	init_fract(t_fract *f)
 {
+	f->menu = NULL;
 	f->render_factor = 1;
 	f->it = 100;
 	f->zoom = 100;
@@ -68,7 +69,7 @@ int	main(int argc, char **argv)
 	mlx_hook(mlx.win, 17, 0, clean_exit, NULL);
 	mlx_hook(mlx.win, 2, 0, key_pressed, &frac);
 	mlx_mouse_hook(mlx.win, mouse_pressed, &frac);
-	mlx_loop_hook(mlx.mlx, push_frame_to_img, &frac);
+	mlx_loop_hook(mlx.mlx, on_loop, &frac);
 	mlx_loop(mlx.mlx);
 	return (0);
 }

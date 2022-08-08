@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 21:21:48 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:10:54 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	type_check(int argc, char **argv, t_fract *f)
 			type_usage();
 	}
 	else
-		exit(0);
+		usage();
 }
