@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 18:53:38 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:10:58 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-t_err	exp_check(int argc, char **argv, t_fract *f)
+void	exp_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	(void)argc;
 	if (**argv == '-' && *(*argv + 1) == 'e' && ft_strlen(*argv + 1) == 1)
@@ -27,11 +27,11 @@ t_err	exp_check(int argc, char **argv, t_fract *f)
 				exp_usage();
 			else
 				usage();
-			return (INVALID_ARGUMENT);
 		}
 		f->exp = ft_atoi(*(argv + 1));
+		opt->E = 2;
+		opt->cnt = opt->E;
 	}
-	return (OK);
 }
 
 void	exp_usage(void)
@@ -41,4 +41,5 @@ void	exp_usage(void)
 	ft_printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
 	ft_printf("Specify N to use when func is used\n");
 	ft_printf("\n\t--help\t\tDisplay more help");
+	exit(0);
 }

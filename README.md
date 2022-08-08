@@ -10,6 +10,8 @@ change render scale	| DEL button and INTRO button
 
 ---
 
+- [ ] Arreglar cuando solo se introduce un numero en -i y -c
+- [ ] Arreglar cuando solo se introduce la letra de un comando seguida de otra (-ix)
 - [ ] Arreglar y organizar el parseo de mierda por dios
 - [ ] NORMA NORMA NORMA NORMA NORMA NORMA NORMA
 - [ ] Go to place

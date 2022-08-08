@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:50 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 18:53:49 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:11:14 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-t_err	iter_check(int argc, char **argv, t_fract *f)
+void	iter_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	(void)argc;
 	if (**argv == '-' && *(*argv + 1) == 'n' && ft_strlen(*argv + 1) == 1)
@@ -27,11 +27,11 @@ t_err	iter_check(int argc, char **argv, t_fract *f)
 				iter_usage();
 			else
 				usage();
-			return (INVALID_ARGUMENT);
 		}
 		f->it = ft_atoi(*(argv + 1));
+		opt->N = 2;
+		opt->cnt = opt->N;
 	}
-	return (OK);
 }
 
 void	iter_usage(void)
@@ -42,4 +42,5 @@ void	iter_usage(void)
 	ft_printf("Specify initial number of ITERATIONS to use when func is used\n");
 	ft_printf("Default: 100\n");
 	ft_printf("\n\t--help\t\tDisplay more help");
+	exit(0);
 }

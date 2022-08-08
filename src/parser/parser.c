@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 20:35:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:58:16 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 #include "error.h"
 #include "parser.h"
 
-t_err	usage(void)
+void	usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type ");
+	ft_printf("usage: fract-ol frac_type ");
 	ft_printf("[-d render] [-f func] [-e exp] \n[-r real] ");
 	ft_printf("[-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n");
 	ft_printf("Options:\n");
 	ft_printf("Each of the following options varies depending");
 	ft_printf(" on fractal_type\n");
-	ft_printf("\tfractals --help\t\t\tDisplays available fractal_type\n");
-	ft_printf("\tfractal_type -d --help\t\tDisplays render_factor info\n");
-	ft_printf("\tfractal_type -f --help\t\tDisplays func info\n");
-	ft_printf("\tfractal_type -e --help\t\tDisplays exp info\n");
-	ft_printf("\tfractal_type -r --help\t\tDisplays real info\n");
-	ft_printf("\tfractal_type -i --help\t\tDisplays imag info\n");
-	ft_printf("\tfractal_type -z --help\t\tDisplays zoom info\n");
-	ft_printf("\tfractal_type -n --help\t\tDisplays iter info\n");
-	ft_printf("\tfractal_type -c --help\t\tDisplays center info\n");
-	ft_printf("\tfractal_type --help\t\tDisplays more info about");
-	ft_printf(" a specyfic fractal\n");
-	ft_printf("\n\t--help\t\t\t\tDisplays this menu\n");
-	return (INVALID_ARGUMENT);
+	ft_printf("\t\tCOMMAND\t\tDESCRIPTION\t\t\tFRACTAL\n");
+	ft_printf("\tfractals     --help\tDisplays available frac_type\n");
+	ft_printf("\tfrac_type -d --help\tDisplays render info\t\tm && j\n");
+	ft_printf("\tfrac_type -f --help\tDisplays func info\t\tm && f\n");
+	ft_printf("\tfrac_type -e --help\tDisplays exp info\t\tm && f\n");
+	ft_printf("\tfrac_type -r --help\tDisplays real info\t\tj\n");
+	ft_printf("\tfrac_type -i --help\tDisplays imag info\t\tj\n");
+	ft_printf("\tfrac_type -z --help\tDisplays zoom info\t\tm && j\n");
+	ft_printf("\tfrac_type -n --help\tDisplays iter info\t\tm\n");
+	ft_printf("\tfrac_type -c --help\tDisplays center info\t\tm\n");
+	ft_printf("\tfrac_type    --help\tDisplays fractal info\t\tm && j\n");
+	ft_printf("\n\t             --help\tDisplays this menu\n");
+	exit(0);
 }
 
 char	char_is(char c, char *str)
@@ -50,14 +50,13 @@ char	char_is(char c, char *str)
 	return (0);
 }
 
-t_err	valid(int argc, char **argv)
+void	valid(int argc, char **argv)
 {
 	(void)argc;
 	if (**argv != '-')
-		return (INVALID_ARGUMENT);
+		usage();
 	if (**argv == '-' && !char_is(*(*argv + 1), "dferiznec"))
-		return (INVALID_ARGUMENT);
-	return (OK);
+		usage();
 }
 
 /*
@@ -65,31 +64,23 @@ t_err	valid(int argc, char **argv)
  * */
 t_err	parse_args(int argc, char **argv, t_fract *f)
 {
-	t_err	err;
+	t_opt	opt;
 
 	argv++;
-	err = type_check(argc, argv, f);
-	if (err == INVALID_ARGUMENT)
-		return (usage());
-	else if (err != OK) 
-		return (type_usage(err));
+	type_check(argc, argv, f);
 	argv++;
 	while (*argv)
 	{
-		if (valid(argc, argv) != OK)
-		{
-			usage();
-			return (INVALID_ARGUMENT);
-		}
-		if (render_check(argc, argv, f) != OK
-			|| func_check(argc, argv, f) != OK
-			|| exp_check(argc, argv, f) != OK
-			|| zoom_check(argc, argv, f) != OK
-			|| iter_check(argc, argv, f) != OK
-			|| center_check(argc, argv, f) != OK
-			|| ri_check(argc, argv, f) != OK)
-			return (INVALID_ARGUMENT);
-		argv += 2;
+		valid(argc, argv);
+		opt.cnt = 0;
+		render_check(argc, argv, f, &opt); 
+		func_check(argc, argv, f, &opt);
+		exp_check(argc, argv, f, &opt);
+		zoom_check(argc, argv, f, &opt);
+		iter_check(argc, argv, f, &opt);
+		center_check(argc, argv, f, &opt);
+		ri_check(argc, argv, f, &opt);
+		argv += opt.cnt;
 	}
 	return (OK);
 }

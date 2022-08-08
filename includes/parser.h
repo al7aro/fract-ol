@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:58:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 20:34:55 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:10:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 #include "fractol.h"
 #include "error.h"
 
-typedef enum e_opt
+typedef struct s_opt
 {
-	D = 0,
-	F = 1,
-	E = 2,
-	R = 3,
-	I = 4,
-	Z = 5,
-	N = 6,
-	C = 7
+	char	D;
+	char	F;
+	char	E;
+	char	I;
+	char	Z;
+	char	N;
+	char	C;
+	char	cnt;
 }		t_opt;
 
-t_err	usage();
-t_err	type_usage(t_err err);
+void	usage();
+void	type_usage();
 void	render_usage();
 void	zoom_usage();
 void	iter_usage();
@@ -37,14 +37,16 @@ void	center_usage();
 void	ri_usage();
 void	exp_usage();
 void	func_usage();
-t_err	type_check(int argc, char **argv, t_fract *f);
-t_err	render_check(int argc, char **argv, t_fract *f);
-t_err	zoom_check(int argc, char **argv, t_fract *f);
-t_err	iter_check(int argc, char **argv, t_fract *f);
-t_err	center_check(int argc, char **argv, t_fract *f);
-t_err	ri_check(int argc, char **argv, t_fract *f);
-t_err	exp_check(int argc, char **argv, t_fract *f);
-t_err	func_check(int argc, char **argv, t_fract *f);
+
+void	type_check(int argc, char **argv, t_fract *f);
+void	render_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	zoom_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	iter_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	center_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	ri_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	exp_check(int argc, char **argv, t_fract *f, t_opt *opt);
+void	func_check(int argc, char **argv, t_fract *f, t_opt *opt);
+
 t_err	parse_args(int argc, char **argv, t_fract *f);
 
 #endif

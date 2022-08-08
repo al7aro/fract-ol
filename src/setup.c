@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 17:56:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:35:28 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	print_info(t_fract fract)
 	ft_printf("TODO: Initial Zoom: %f\n", fract.zoom);
 	ft_printf("TODO: Initial Iterations: %f\n", fract.it);
 	ft_printf("TODO: Initial exp: %d\n", fract.exp);
+	ft_printf("TODO: Initial Julia Init: [%Lf, %Lf]\n", fract.julia_init.r, fract.julia_init.r);
+	ft_printf("TODO: Initial Center: [%f, %f]\n", fract.center[0], fract.center[1]);
 	if (img.endi == FT_LITTLE_ENDIAN)
 		ft_printf("Little Endian");
 	else

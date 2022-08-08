@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:26:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/05 03:23:56 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:20:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_strisdigit(char *c)
 {
 	if (!c)
 		return (0);
+	if (*c == '-')
+		c++;
 	while (*c)
 	{
 		if (!ft_isdigit(*c))
@@ -35,6 +37,8 @@ int	ft_strisfdigit(char *c)
 	p_cnt = 0;
 	if (!c)
 		return (0);
+	if (*c == '-')
+		c++;
 	while (*c)
 	{
 		if (*c == '.')

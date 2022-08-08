@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:20 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 18:54:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:11:23 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-t_err	zoom_check(int argc, char **argv, t_fract *f)
+void	zoom_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	(void)argc;
 	if (**argv == '-' && *(*argv + 1) == 'z' && ft_strlen(*argv + 1) == 1)
@@ -27,11 +27,11 @@ t_err	zoom_check(int argc, char **argv, t_fract *f)
 				zoom_usage();
 			else
 				usage();
-			return (INVALID_ARGUMENT);
 		}
 		f->zoom = ft_atoi(*(argv + 1));
+		opt->Z = 2;
+		opt->cnt = opt->Z;
 	}
-	return (OK);
 }
 
 void	zoom_usage(void)
@@ -42,4 +42,5 @@ void	zoom_usage(void)
 	ft_printf("Specify initial ZOOM\n");
 	ft_printf("Default: 100\n");
 	ft_printf("\n\t--help\t\tDisplay more help");
+	exit(0);
 }
