@@ -10,6 +10,12 @@ change render scale	| DEL button and INTRO button
 
 ---
 
+![Alt Text](renders/r0.png)
+![Alt Text](renders/r1.png)
+![Alt Text](renders/r2.png)
+
+---
+
 - [ ] SOLUCIONAR PROBLEMAS DE COLOR ANTES DE SEGUIR CON EL P PARSEO
 
 - [ ] Arreglar cuando solo se introduce un numero en -i y -c
