@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 20:47:49 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/09 03:18:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int	shade(int x, int y, t_fract f)
 	c.i = ((double)y / (double)f.img->img_h * (f.world[3] - f.world[1])) + f.world[1];
 	z.r = f.julia_init.r;
 	z.i = f.julia_init.i;
+			f.func = ncorn;
 	d = diverges(f, &z, &c);
 	col = d / f.it;
 	if (col < 0)

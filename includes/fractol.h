@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 15:26:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/09 03:14:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ typedef struct s_fract
 }			t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
+t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp);
+t_vec2	bship(t_vec2 z, t_vec2 c, int exp);
 
 #endif
