@@ -15,6 +15,8 @@ change render scale	| DEL button and INTRO button
 ![Alt Text](renders/r2.png)
 ![Alt Text](renders/r3.png)
 ![Alt Text](renders/r4.png)
+![Alt Text](renders/r5.png)
+![Alt Text](renders/r6.png)
 
 ---
 
