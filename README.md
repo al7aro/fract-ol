@@ -21,3 +21,4 @@
 - Generalizar el exponente de las funciones
 - Arreglar parseo
 - Cambiar por teclado la funcion usada
+- Que los nuevos render tengan nuevos nombres
