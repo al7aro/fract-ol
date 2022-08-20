@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:20 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 13:11:23 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:38:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	zoom_check(int argc, char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		f->zoom = ft_atoi(*(argv + 1));
-		opt->Z = 2;
-		opt->cnt = opt->Z;
+		opt->z = 2;
+		opt->cnt = opt->z;
 	}
 }
 

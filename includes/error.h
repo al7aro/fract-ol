@@ -6,12 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 02:16:40 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 19:20:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:36:08 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRROR_H
-# define ERRROR_H
+#ifndef ERROR_H
+# define ERROR_H
 
 typedef enum e_err
 {
@@ -24,7 +24,6 @@ typedef enum e_err
 	RI_USAGE,
 	EXP_USAGE,
 	FUNC_USAGE,
-
 	MANDELBROT_USAGE,
 	JULIA_USAGE,
 	OK

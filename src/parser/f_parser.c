@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 13:11:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:37:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	func_check(int argc, char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		ft_printf("Check -f");
-		opt->F = 2;
-		opt->cnt = opt->F;
+		opt->f = 2;
+		opt->cnt = opt->f;
 	}
 }
 

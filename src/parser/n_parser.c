@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:50 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 13:11:14 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:37:54 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	iter_check(int argc, char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		f->it = ft_atoi(*(argv + 1));
-		opt->N = 2;
-		opt->cnt = opt->N;
+		opt->n = 2;
+		opt->cnt = opt->n;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 14:10:54 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/19 17:19:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	type_usage()
 	exit(0);
 }
 
-void	type_check(int argc, char **argv, t_fract *f)
+void	type_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	if (argc == 1)
 		usage();
@@ -59,6 +59,7 @@ void	type_check(int argc, char **argv, t_fract *f)
 		if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
 			mandelbrot_usage();
 		f->type = MANDELBROT;
+		opt->type = 'm';
 	}
 	else if (!ft_strncmp(ft_strtolower(*argv), "julia", 6)
 		|| (**argv == 'j' && ft_strlen(*argv) == 1))
@@ -66,6 +67,7 @@ void	type_check(int argc, char **argv, t_fract *f)
 		if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
 			julia_usage();
 		f->type = JULIA;
+		opt->type = 'j';
 	}
 	else if (!ft_strncmp(ft_strtolower(*argv), "fractals", 6)
 		|| (**argv == 'j' && ft_strlen(*argv) == 1))

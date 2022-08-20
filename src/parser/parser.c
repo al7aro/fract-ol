@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 14:12:10 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/19 17:30:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	usage(void)
 	ft_printf("\t\tCOMMAND\t\tDESCRIPTION\t\t\tFRACTAL\n");
 	ft_printf("\tfractals     --help\tDisplays available frac_type\n");
 	ft_printf("\tfrac_type -d --help\tDisplays render info\t\tm && j\n");
-	ft_printf("\tfrac_type -f --help\tDisplays func info\t\tm && f\n");
-	ft_printf("\tfrac_type -e --help\tDisplays exp info\t\tm && f\n");
+	ft_printf("\tfrac_type -f --help\tDisplays func info\t\tm && j\n");
+	ft_printf("\tfrac_type -e --help\tDisplays exp info\t\tm && j\n");
 	ft_printf("\tfrac_type -i --help\tDisplays imag info\t\tj\n");
 	ft_printf("\tfrac_type -z --help\tDisplays zoom info\t\tm && j\n");
 	ft_printf("\tfrac_type -n --help\tDisplays iter info\t\tm\n");
@@ -66,7 +66,7 @@ t_err	parse_args(int argc, char **argv, t_fract *f)
 	t_opt	opt;
 
 	argv++;
-	type_check(argc, argv, f);
+	type_check(argc, argv, f, &opt);
 	argv++;
 	while (*argv)
 	{

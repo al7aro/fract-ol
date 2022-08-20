@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 15:05:05 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:37:28 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	render_check(int argc, char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		f->render_factor = ft_atoi(*(argv + 1));
-		opt->D = 2;
-		opt->cnt = opt->D;
+		opt->d = 2;
+		opt->cnt = opt->d;
 	}
 }
 

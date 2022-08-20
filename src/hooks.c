@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/08 16:15:47 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 15:05:54 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "utils.h"
 #include "ft_math.h"
 #include "temp.h"
+#include "shade.h"
 
 #include <stdio.h>
 
@@ -42,6 +43,10 @@ int	key_pressed(int keycode, void *param)
 		f->it -= log10(f->zoom);
 	else if (keycode == DEL)
 		f->render_factor++;
+	else if (keycode == M)
+		f->menu_toggle = !f->menu_toggle;
+	else if (keycode == X)
+		render_export(f);
 	else if (keycode == INTRO)
 		if (f->render_factor > 1)
 			f->render_factor--;

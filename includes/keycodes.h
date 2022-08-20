@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:38:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/04 14:20:35 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 14:59:13 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define MINUS 27
 # define SHIFT 257
 # define TAB 48
+# define M 46
+# define X 7
 /* MOUSE CODES */
 # define MSCROLL_UP 5
 # define MSCROLL_DOWN 4

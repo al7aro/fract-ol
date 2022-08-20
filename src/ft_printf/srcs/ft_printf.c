@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:51:03 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:12:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 15:46:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ int	ft_printf(const char *in, ...)
 	while (*(in + si.i))
 	{
 		if (*(in + si.i) == 37)
-			process_in(in + si.i + 1, &si, &sf);
+		{
+			if (*(in + ++si.i) == 37)
+				write(1, "%", 1);
+			else
+				process_in(in + --si.i + 1, &si, &sf);
+		}
 		else
 		{
 			si.t++;

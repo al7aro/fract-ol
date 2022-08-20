@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 20:03:12 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/07 20:26:51 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:50:25 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long double	get_decimal_part(const char *str)
 {
-	int		cnt;
+	int			cnt;
 	long double	f;
 
 	cnt = 0;
@@ -30,7 +30,7 @@ long double	get_decimal_part(const char *str)
 long double	ft_atof(const char *str)
 {
 	long double	aux;
-	int		sign;
+	int			sign;
 
 	aux = 0.0;
 	sign = 1;

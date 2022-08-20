@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/08 15:35:06 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/20 17:03:15 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,16 @@ I_LIBFT_H	 	= $(I_LIBFT)/libft.h
 	#---------- MLX ------------------------------------------------------------
 M_MLX_DIR 		= $(MLX_DIR)/Makefile
 
-MLX_LIB			= mlx
-MLX_DIR 		= $(SRC_DIR)/mlx
+#MLX_LIB		= mlx
+#MLX_DIR 		= $(SRC_DIR)/mlx
+#MLX_LIBDIR 	= $(SRC_DIR)/mlx
+#I_MLX 			= $(MLX_DIR)/includes
 
-I_MLX 			= $(MLX_DIR)/includes
+MLX_LIB			= mlx
+MLX_DIR 		= $(SRC_DIR)/mlx2020
+MLX_LIBDIR		= ./
+I_MLX 			= $(MLX_DIR)
+
 I_MLX_H		 	= $(wildcard $(I_MLX)/*.h)
 #---------- fract-ol -----------------------------------------------------------
 #---------- INCLUDES ----------
@@ -65,7 +71,8 @@ SRC_PARSER 		= $(SRC_DIR)/parser
 SRC_PARSER_C 		= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
 			  n_parser.c ri_parser.c z_parser.c type_parser.c
 #SRC_2_C 		= exec.c s.c p.c r.c rr.c 
-SRC_FRACTOL_C 		= main.c fractal.c math.c setup.c hooks.c fill_color.c shade.c
+SRC_FRACTOL_C 		= main.c fractal.c math.c setup.c hooks.c fill_color.c shade.c \
+					  color_range.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
 				$(patsubst %.c, $(SRC_1)/%.c, $(SRC_1_C)) \
 				$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)) 
@@ -104,7 +111,7 @@ $(NAME): $(OBJ) $(FTPF_SRC) $(M_FTPF) $(LIBFT_SRC) $(M_LIBFT) $(I)
 			@echo " ---> ${CYAN}Success${NC}"
 			@$(CC) $(FLAGS) $(MLX_FLAGS) $(OBJ) \
 				-L$(FTPF_DIR) -l$(FTPF_LIB) \
-				-L$(MLX_DIR) -l$(MLX_LIB) -o $(NAME)
+				-L$(MLX_LIBDIR) -l$(MLX_LIB) -o $(NAME)
 			@echo "${GREEN}${NAME} READY!${NC}"
 clean:
 			@make -s -C $(FTPF_DIR) clean
@@ -118,6 +125,8 @@ fclean: clean
 			@echo "${YELLOW}$(NAME) Removed!${NC}"
 re: fclean $(NAME)
 
+fast: FLAGS += -Ofast
+fast: re 
 debug: FLAGS = -g -D DEBUG
 debug: re
 
