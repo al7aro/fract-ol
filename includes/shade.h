@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:36:26 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 15:00:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 19:13:28 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_range
 	char	n;
 }				t_range;
 
-int	shade(int x, int y, t_fract f);
+int	shade(int x, int y, t_fract f, char exp);
 int	color(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 
 int	wrgbw_range(long double c);

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 14:49:22 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 19:03:59 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ int	setup(t_fract *fract, int width, int height)
 	img->buffer = mlx_get_data_addr(img->img,
 			&(img->bpp), &(img->line_size), &(img->endi));
 	img->aspect = (double)width / (double)height;
-ft_printf("HERE YES");	
 	menu->xpos = 0;
-ft_printf("HERE YES");	
 	menu->ypos = 0.7 * height;
 	menu->img_w = width;
 	menu->img_h = img->img_h - menu->ypos;
 	menu->img = mlx_new_image(mlx->mlx, menu->img_w, menu->img_h);
 	menu->buffer = mlx_get_data_addr(menu->img,
 			&(menu->bpp), &(menu->line_size), &(menu->endi));
+	fract->render_w = X2K;
+	fract->render_h = Y2K;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 17:13:18 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 19:43:12 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	render_fractal(t_fract *f)
 		while (++x < img->img_w)
 		{
 			if (!(x % f->render_factor))
-				col = shade(x, y, *f);
+				col = shade(x, y, *f, 0);
 			pixel_buffer_put(img, x, y, col);
 		}
 	}
@@ -84,6 +84,10 @@ int	render_menu(t_fract *f)
 	}
 	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->menu->img, f->menu->xpos, f->menu->ypos);
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + 20, 0x00FFFFFF, "FRACT-OL");
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + 40, 0x00FFFFFF, ft_ftoa(f->center[0], 9));
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 150, f->menu->ypos + 40, 0x00FFFFFF, ft_ftoa(f->center[1], 9));
+
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 150, f->menu->ypos + 40, 0x00FFFFFF, ft_ftoa(f->center[1], 9));
 	return (0);
 }
 
@@ -102,15 +106,15 @@ int	render_export(t_fract *f)
 	fd = open("renders/new.ppm", O_CREAT | O_RDWR);
 	img = f->img;
 	y = -1;
-	write(fd, "P3\n", 3);
-	write(fd, "2048 1080\n", 10);
-	write(fd, "255\n", 4);
+	write(fd, "P3\n2048 1080\n255\n", 17);
+	f->img->aspect = (double)f->render_w / (double)f->render_h;
+	update_world(f);
 	while (++y < Y2K)
 	{
 		x = -1;
 		while (++x < X2K)
 		{
-			col = shade(x, y, *f);
+			col = shade(x, y, *f, 1);
 			scolor = ft_itoa((col & 0x00FF0000) >> 16);
 			write(fd, scolor, ft_strlen(scolor));
 			free(scolor);
@@ -133,6 +137,8 @@ int	render_export(t_fract *f)
 				* f->mlx->win_w, f->mlx->win_h - 20, 0x00FFFFFF, "-");
 		mlx_do_sync(f->mlx->mlx);
 	}
+	f->img->aspect = (double)f->mlx->win_w / (double)f->mlx->win_h;
+	update_world(f);
 	close(fd);
 	return (0);
 }

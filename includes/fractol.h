@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 14:53:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 19:21:03 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct s_fract
 	int			exp;
 	t_vec2		julia_init;
 	int			render_factor;
+	int			render_w;
+	int			render_h;
 }				t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);

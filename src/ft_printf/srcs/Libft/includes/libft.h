@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 08:06:08 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:49:53 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 19:24:37 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				ft_putnbr_fd(int n, int fd);
 char				**ft_split(char const *s, char c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_itoa(int n);
+char				*ft_ftoa(double long num, int prc);
 char				*ft_uitoa(int n);
 char				*ft_uitoab(unsigned int n, char *base);
 char				*ft_ultoab(unsigned long n, char *base);
