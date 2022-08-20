@@ -20,3 +20,4 @@
 - Crear pulsadores en el menu
 - Generalizar el exponente de las funciones
 - Arreglar parseo
+- Cambiar por teclado la funcion usada
