@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 23:45:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:50:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	init_fract(t_fract *f)
 	f->julia_init.i = 0.0;
 	f->exp = 2;
 	f->type = KO;
-	f->func = bship;
+	f->func = znc;
 	f->menu_toggle = 0;
 	(*(f->ran + 0)) = (t_ran){{0xE0E0E0, 0x818181, 0x606060, 0x3B3B3B, 0x262626}, 5};
 	(*(f->ran + 1)) = (t_ran){{0x9E95ED, 0xC161DC, 0x4ED3B0, 0xF2B061, 0xF76E61}, 5};
