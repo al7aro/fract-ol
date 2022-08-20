@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 19:52:41 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:26:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,6 @@ int	shade(int x, int y, t_fract f, char export)
 	t_vec2		c;
 	int			w;
 	int			h;
-	//int			range[] = {0x9E95ED, 0xC161DC, 0x4ED3B0, 0xF2B061, 0xF76E61};
-	//int			range[] = {0xE0E0E0, 0x818181, 0x606060, 0x3B3B3B, 0x262626};
-	int			range[] = {0xD90D7D, 0xD90BCB, 0x670FBF, 0x36D9BB, 0xF2D43D};
 
 	w = f.render_w;
 	h = f.render_h;
@@ -110,5 +107,5 @@ int	shade(int x, int y, t_fract f, char export)
 	col -= (int)col;
 	if (col < 0)
 		return (0);
-	return (color_range(col, range, 5));
+	return (color_range(col, (*(f.ran + (f.ran_sel % 5))).ran, (*(f.ran + (f.ran_sel % 5))).size));
 }

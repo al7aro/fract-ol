@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/20 17:59:31 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/20 20:36:20 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ I 			= $(patsubst %.h, $(I_DIR)/%.h, $(I_H)) \
 
 #---------- SRC ----------
 SRC_DIR 		= ./
-SRC_FRACTOL_C 	= main.c ft_ftoa.c ft_ultoa.c
+SRC_FRACTOL_C 	= ft_ultoa.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
 #---------- OBJ ----------
 BUILD_DIR 		= $(SRC_DIR)/build

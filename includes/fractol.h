@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 19:21:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:44:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,23 @@ typedef struct s_mlx
 	int		win_h;
 }		t_mlx;
 
+typedef struct s_ran
+{
+	int	ran[16];
+	int	size;
+}				t_ran;
+
 typedef struct s_fract
 {
 	t_mlx		*mlx;
 	t_img		*img;
 	t_img		*menu;
+	t_ran		ran[5];
+	char		ran_sel;
 	char		menu_toggle;
-	double		center[2];
+	t_vec2		center;
 	double		world[4];
+	double		prev_zoom;
 	double		zoom;
 	double		szoom;
 	t_fractal	type;

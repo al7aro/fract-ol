@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 08:06:08 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 19:24:37 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 20:39:09 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char				*ft_ftoa(double long num, int prc);
 char				*ft_uitoa(int n);
 char				*ft_uitoab(unsigned int n, char *base);
 char				*ft_ultoab(unsigned long n, char *base);
+char				*ft_ultoa(unsigned long n);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 14:44:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:45:30 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,23 @@ void	init_fract(t_fract *f)
 {
 	f->render_factor = 1;
 	f->it = 50;
-	f->zoom = 200;
+	f->prev_zoom = MIN_ZOOM;
+	f->zoom = MIN_ZOOM;
 	f->szoom = 4;
-	f->center[0] = 0.0;
-	f->center[1] = 0.0;
+	f->center.x = 0.0;
+	f->center.y = 0.0;
 	f->julia_init.r = 0.0;
 	f->julia_init.i = 0.0;
 	f->exp = 2;
 	f->type = KO;
-	f->func = znc;
+	f->func = bship;
 	f->menu_toggle = 0;
+	(*(f->ran + 0)) = (t_ran){{0xE0E0E0, 0x818181, 0x606060, 0x3B3B3B, 0x262626}, 5};
+	(*(f->ran + 1)) = (t_ran){{0x9E95ED, 0xC161DC, 0x4ED3B0, 0xF2B061, 0xF76E61}, 5};
+	(*(f->ran + 2)) = (t_ran){{0xD90D7D, 0xD90BCB, 0x670FBF, 0x36D9BB, 0xF2D43D}, 5};
+	(*(f->ran + 3)) = (t_ran){{0xc2ffc2, 0x88b388, 0xf0fff0, 0xe1ffe1, 0xffffff}, 5};
+	(*(f->ran + 4)) = (t_ran){{0xe74645, 0xfb7756, 0xfacd60, 0xfdfa66, 0x1ac0c6}, 5};
+	f->ran_sel = 1;
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 19:03:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:27:56 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ t_vec2	screen_to_world(t_fract f, int x, int y)
 
 void	update_world(t_fract *f)
 {
-	f->world[0] = f->center[0]
+	f->world[0] = f->center.x
 		- ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-	f->world[1] = -f->center[1] + (IY0 / f->zoom);
-	f->world[2] = f->center[0]
+	f->world[1] = -f->center.y + (IY0 / f->zoom);
+	f->world[2] = f->center.x
 		+ ((((IY1 - IY0) * f->img->aspect) / 2) / f->zoom);
-	f->world[3] = -f->center[1] + (IY1 / f->zoom);
+	f->world[3] = -f->center.y + (IY1 / f->zoom);
 }
 
 int	setup(t_fract *fract, int width, int height)
