@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@41.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 022/08/19 17:34:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:53:22 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:59:40 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	wrgbw_range(long double c)
 
 int	color_range(long double c, int *colors, int n)
 {
-	int		rdiff;
-	int		gdiff;
-	int		bdiff;
+	float	rdiff;
+	float	gdiff;
+	float	bdiff;
 	int		cnt;
 	float	step;
 
