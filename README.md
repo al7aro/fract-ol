@@ -1,7 +1,5 @@
 # fract-ol - Fractal explorer
 
----
-
 ![Alt Text](renders/r9.jpg)
 ![Alt Text](renders/r7.jpg)
 ![Alt Text](renders/r8.jpg)
