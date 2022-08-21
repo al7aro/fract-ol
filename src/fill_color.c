@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 00:21:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:06:37 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 #include <fcntl.h>
+#include <math.h>
 
 /*
  * 0 R
@@ -47,8 +48,6 @@ int	render_fractal(t_fract *f)
 	img = f->img;
 	y = -1;
 	y_limit = img->img_h;
-	if (f->menu_toggle)
-		y_limit = f->menu->ypos;
 	while (++y < y_limit)
 	{
 		x = -1;
@@ -68,12 +67,12 @@ int	draw_call(t_fract *f, int x, int y)
 	int	cnt;
 	int	side;
 
-	side = 0.1 * f->menu->img_h;
+	side = 20;
 	cnt = -1;
 	while (++cnt < (*(f->ran + f->ran_sel % 5)).size)
 	{
-		if (abs(x - f->menu->img_w / 2 + (cnt * side * 2) - (side * 4)) < side
-				&& abs(y - f->menu->img_h / 2) < side)
+		if (abs(x - (30 + 40 * cnt)) < side
+				&& fabs(y - (f->menu->img_h * 0.85)) < side)
 			return (*(f->ran + f->ran_sel % 5)).ran[cnt];
 	}
 	return (0);
@@ -98,8 +97,8 @@ int	render_menu(t_fract *f)
 		}
 	}
 	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->menu->img, f->menu->xpos, f->menu->ypos);
-	//Color palette
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.5 - 65, f->menu->ypos + f->menu->img_h * 0.25, 0x0000FFFF, "Color Palette:");
+	//Title
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos, f->menu->ypos + 10, 0x00FFFFFF, "--------STATUS--------");
 	//Re:
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h * 0.1, 0x00FFFFFF, "Re:");
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 50, f->menu->ypos + f->menu->img_h * 0.1, 0x00FFFFFF, ft_ftoa(f->center.x, 9));
@@ -116,47 +115,50 @@ int	render_menu(t_fract *f)
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h * 0.1 + 80, 0x00FFFFFF, "Render Scale: 1/");
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 170, f->menu->ypos + f->menu->img_h * 0.1 + 80, 0x00FFFFFF, ft_itoa(f->render_factor));
 	//Type
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-			f->menu->ypos + f->menu->img_h * 0.1, 0x0000FFFF, "OP: ");
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+			f->menu->ypos + f->menu->img_h * 0.1 + 100, 0x0000FFFF, "OP: ");
 	if (f->type == MANDELBROT)
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7 + 40,
-				f->menu->ypos + f->menu->img_h * 0.1, 0x00FFFFFF, "MANDELBROT");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 120, 0x00FFFFFF, "MANDELBROT");
 	else if (f->type == JULIA)
 	{
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7 + 40,
-				f->menu->ypos + f->menu->img_h * 0.1, 0x00FFFFFF, "JULIA");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 120, 0x00FFFFFF, "JULIA");
 		//Re:
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 20, 0x00FFFFFF, "Re:");
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7 + 40,
-				f->menu->ypos + f->menu->img_h * 0.1 + 20, 0x00FFFFFF, ft_ftoa(f->julia_init.x, 9));
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 140, 0x00FFFFFF, "Re:");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 50,
+				f->menu->ypos + f->menu->img_h * 0.1 + 140, 0x00FFFFFF, ft_ftoa(f->julia_init.x, 9));
 		//Im1
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 40, 0x00FFFFFF, "Im:");
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7 + 40,
-				f->menu->ypos + f->menu->img_h * 0.1 + 40, 0x00FFFFFF, ft_ftoa(f->julia_init.y, 9));
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 160, 0x00FFFFFF, "Im:");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 50,
+				f->menu->ypos + f->menu->img_h * 0.1 + 160, 0x00FFFFFF, ft_ftoa(f->julia_init.y, 9));
 	}
-	//Exp
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-			f->menu->ypos + f->menu->img_h * 0.1 + 60, 0x00FFFFFF, "Exp: ");
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7 + 45,
-			f->menu->ypos + f->menu->img_h * 0.1 + 60, 0x00FFFFFF, ft_itoa(f->exp));
 	//Func
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-			f->menu->ypos + f->menu->img_h * 0.1 + 80, 0x0000FFFF, "FUNCTION: ");
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+			f->menu->ypos + f->menu->img_h * 0.1 + 180, 0x0000FFFF, "FUNCTION: ");
 	if (f->func == znc)
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 100, 0x00FFFFFF, "z = z^exp + c");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z = z^exp + c");
 	else if (f->func == ncorn)
 	{
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 100, 0x00FFFFFF, "z.Im = -z.Im");
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 120, 0x00FFFFFF, "z = z^exp + c");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z.Im = -z.Im");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 220, 0x00FFFFFF, "z = z^exp + c");
 	}
 	else if (f->func == bship)
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->img_w * 0.7,
-				f->menu->ypos + f->menu->img_h * 0.1 + 100, 0x00FFFFFF, "z = abs(z)^exp + c");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z = abs(z)^exp + c");
+	//Exp
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+			f->menu->ypos + f->menu->img_h * 0.1 + 240, 0x00FFFFFF, "Exp: ");
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10 + 45,
+			f->menu->ypos + f->menu->img_h * 0.1 + 240, 0x00FFFFFF, ft_itoa(f->exp));
+	//Color palette
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
+			f->menu->ypos + f->menu->img_h * 0.1 + 260, 0x0000FFFF, "Color Palette:");
 	return (0);
 }
 
@@ -197,15 +199,17 @@ int	render_export(t_fract *f)
 			free(scolor);
 			write(fd, "\n", 1);
 		}
-		mlx_string_put(f->mlx->mlx, f->mlx->win, 10, f->mlx->win_h - 40, 0x00000000, "NOW RENDERING");
-		mlx_string_put(f->mlx->mlx, f->mlx->win, 10, f->mlx->win_h - 40, 0x00FFFFFF, "NOW RENDERING");
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->mlx->win_w - 40, f->mlx->win_h - 40, 0x00000000, ft_itoa(completed));
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h - 30, 0x00000000, "NOW RENDERING");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h - 30, 0x00FFFFFF, "NOW RENDERING");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + f->menu->img_w - 40, f->menu->img_h - 30, 0x00000000, ft_itoa(completed));
 		completed = y * 100 / Y2K;
-		mlx_string_put(f->mlx->mlx, f->mlx->win, f->mlx->win_w - 40, f->mlx->win_h - 40, 0x0000FF00, ft_itoa(completed));
-		mlx_string_put(f->mlx->mlx, f->mlx->win, (float)(completed/(float)100)
-				* f->mlx->win_w, f->mlx->win_h - 20, 0x00FFFFFF, "-");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + f->menu->img_w - 40, f->menu->img_h - 30, 0x00FFFFFF, ft_itoa(completed));
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + f->menu->img_w - 15, f->menu->img_h - 30, 0x00FFFFFF, "%");
+		mlx_string_put(f->mlx->mlx, f->mlx->win, (float)(completed/(float)100) * (f->menu->img_w - 10), f->menu->ypos + f->menu->img_h - 20, 0x00FFFFFF, "-");
 		mlx_do_sync(f->mlx->mlx);
 	}
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h - 30, 0x00000000, "NOW RENDERING");
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10, f->menu->ypos + f->menu->img_h - 30, 0x0000FF00, "DONE!");
 	f->img->aspect = (double)f->mlx->win_w / (double)f->mlx->win_h;
 	update_world(f);
 	close(fd);

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 01:03:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:06:31 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	setup(t_fract *fract, int width, int height)
 			&(img->bpp), &(img->line_size), &(img->endi));
 	img->aspect = (double)width / (double)height;
 	menu->xpos = 0;
-	menu->ypos = 0.7 * height;
-	menu->img_w = width;
-	menu->img_h = img->img_h - menu->ypos;
+	menu->ypos = 0;
+	menu->img_w = 220;
+	menu->img_h = 410;
 	menu->img = mlx_new_image(mlx->mlx, menu->img_w, menu->img_h);
 	menu->buffer = mlx_get_data_addr(menu->img,
 			&(menu->bpp), &(menu->line_size), &(menu->endi));
