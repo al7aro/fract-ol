@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 03:54:18 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 12:40:50 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define IY0 -600.0
 
 # define IY1 600.0
-# define MIN_ZOOM 100.0
+# define MIN_ZOOM 300.0
 # define X2K 2048
 # define Y2K 1080
 
