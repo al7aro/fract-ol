@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@41.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 022/08/19 17:34:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 00:33:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:23:43 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-int	wrgbw_range(long double c)
-{
-	if (c < 0)
-		return (color(0, 0, 0, 0));
-	if (c >= 0.0 && c <= 0.25)
-	{
-		c /= 0.25;
-		return (color(255, 255 * (1 - c), 255 * (1 - c), 1));
-	}
-	else if (c > 0.25 && c <= 0.5)
-	{
-		c = (c - 0.25) / 0.25;
-		return (color(255 * (1 - c), 255 * c, 0, 1));
-	}
-	else if (c > 0.5 && c <= 0.64)
-	{
-		c = (c - 0.5) / 0.25;
-		return (color(0, 255 * (1 - c), 255 * c, 1));
-	}
-	else if (c > 0.64 && c <= 1.0)
-	{
-		c = (c - 0.64) / 0.25;
-		return (color(255 * c, 255 * c, 255, 1));
-	}
-	return (color(255, 255, 255, 0));
-}
 
 int	color_range(long double c, int *colors, int n)
 {

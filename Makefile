@@ -6,15 +6,15 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/20 17:26:08 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/21 13:31:46 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RED			= \033[0;31m
+RED				= \033[0;31m
 CYAN			= \033[0;36m
 GREEN 			= \033[1;32m
 YELLOW 			= \033[1;33m
-NC 			= \033[0m
+NC 				= \033[0m
 
 DIR 			= .
 NAME 			= fract-ol
@@ -60,44 +60,65 @@ I_MLX_H		 	= $(wildcard $(I_MLX)/*.h)
 #---------- INCLUDES ----------
 I_DIR 			= $(DIR)/includes
 I_H 			= error.h fractol.h ft_math.h hooks.h keycodes.h \
-			  parser.h shade.h temp.h utils.h
-I 			= $(patsubst %.h, $(I_DIR)/%.h, $(I_H)) \
-			  $(I_FTPF_H) $(I_LIBFT_H)
+				  parser.h shade.h temp.h utils.h
+I 				= $(patsubst %.h, $(I_DIR)/%.h, $(I_H)) \
+				  $(I_FTPF_H) $(I_LIBFT_H)
 
 #---------- SRC ----------
 SRC_DIR 		= $(DIR)/src
 SRC_PARSER 		= $(SRC_DIR)/parser
-#SRC_2 			= $(SRC_DIR)/instr
-SRC_PARSER_C 		= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
-			  n_parser.c ri_parser.c z_parser.c type_parser.c
-#SRC_2_C 		= exec.c s.c p.c r.c rr.c 
-SRC_FRACTOL_C 		= main.c fractal.c math.c setup.c hooks.c fill_color.c shade.c \
-					  color_range.c
+SRC_MATH 		= $(SRC_DIR)/math
+SRC_EVENTS 		= $(SRC_DIR)/events
+SRC_COLOR 		= $(SRC_DIR)/color
+SRC_RENDER 		= $(SRC_DIR)/render
+SRC_FRACTOL_C 	= main.c setup.c 
+SRC_PARSER_C 	= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
+				  n_parser.c ri_parser.c z_parser.c type_parser.c
+SRC_MATH_C 		= math.c fractal.c funcs.c 
+SRC_EVENTS_C	= hooks.c 
+SRC_COLOR_C		= shade.c color_range.c
+SRC_RENDER_C	= render.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
-				$(patsubst %.c, $(SRC_1)/%.c, $(SRC_1_C)) \
-				$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)) 
+				$(patsubst %.c, $(SRC_PARSER)/%.c, $(SRC_PARSER_C)) \
+				$(patsubst %.c, $(SRC_EVENTS)/%.c, $(SRC_EVENTS_C)) \
+				$(patsubst %.c, $(SRC_COLOR)/%.c, $(SRC_COLOR_C)) \
+				$(patsubst %.c, $(SRC_RENDER)/%.c, $(SRC_RENDER_C)) \
+				$(patsubst %.c, $(SRC_MATH)/%.c, $(SRC_MATH_C)) 
 #---------- OBJ ----------
 BUILD_DIR 		= $(SRC_DIR)/build
 
-OBJ_PS 			= $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, \
+OBJ_FO 			= $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, \
 		 		$(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)))
-OBJ_INSTR 		= $(patsubst $(SRC_2)/%.c, $(BUILD_DIR)/%.o, \
-				$(patsubst %.c, $(SRC_2)/%.c, $(SRC_2_C)))
-OBJ_COLOR 		= $(patsubst $(SRC_PARSER)/%.c, $(BUILD_DIR)/%.o, \
+OBJ_MATH 		= $(patsubst $(SRC_MATH)/%.c, $(BUILD_DIR)/%.o, \
+				$(patsubst %.c, $(SRC_MATH)/%.c, $(SRC_MATH_C)))
+OBJ_PARSER 		= $(patsubst $(SRC_PARSER)/%.c, $(BUILD_DIR)/%.o, \
 				$(patsubst %.c, $(SRC_PARSER)/%.c, $(SRC_PARSER_C)))
-OBJ 			= $(OBJ_PS) $(OBJ_INSTR) $(OBJ_COLOR)
+OBJ_EVENTS 		= $(patsubst $(SRC_EVENTS)/%.c, $(BUILD_DIR)/%.o, \
+				$(patsubst %.c, $(SRC_EVENTS)/%.c, $(SRC_EVENTS_C)))
+OBJ_COLOR 		= $(patsubst $(SRC_COLOR)/%.c, $(BUILD_DIR)/%.o, \
+				$(patsubst %.c, $(SRC_COLOR)/%.c, $(SRC_COLOR_C)))
+OBJ_RENDER 		= $(patsubst $(SRC_RENDER)/%.c, $(BUILD_DIR)/%.o, \
+				$(patsubst %.c, $(SRC_RENDER)/%.c, $(SRC_RENDER_C)))
+OBJ 			= $(OBJ_FO) $(OBJ_MATH) $(OBJ_PARSER) $(OBJ_EVENTS) \
+				  $(OBJ_COLOR) $(OBJ_RENDER)
 
 #---------- FLAGS ----------
-CC 			= gcc
+CC 				= gcc
 FLAGS 			= -Wall -Wextra -Werror
 I_FLAG 			= -I $(I_DIR)/ -I $(I_FTPF)/ -I $(I_LIBFT)/ -I $(I_MLX)/
 MLX_FLAGS		= -framework OpenGL -framework AppKit
 
 $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c
 			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
-$(BUILD_DIR)/%.o : $(SRC_2)/%.c
+$(BUILD_DIR)/%.o : $(SRC_MATH)/%.c
 			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 $(BUILD_DIR)/%.o : $(SRC_PARSER)/%.c
+			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
+$(BUILD_DIR)/%.o : $(SRC_EVENTS)/%.c
+			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
+$(BUILD_DIR)/%.o : $(SRC_COLOR)/%.c
+			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
+$(BUILD_DIR)/%.o : $(SRC_RENDER)/%.c
 			@$(CC) $(FLAGS) $(I_FLAG) -c $< -o $@
 #-------------------------------------------------------------------------------
 
