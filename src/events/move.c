@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs.c                                            :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 13:22:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 15:45:45 by alopez-g         ###   ########.fr       */
+/*   Created: 2022/08/21 15:56:55 by alopez-g          #+#    #+#             */
+/*   Updated: 2022/08/21 17:39:45 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include "keycodes.h"
 #include "fractol.h"
-#include <math.h>
+#include <stdlib.h>
 
-t_vec2	znc(t_vec2 z, t_vec2 c, int exp)
+int	move(int keycode, t_fract *f)
 {
-	t_vec2	m;
-
-	(void)exp;
-	m.r = (pow(z.r, 2) - pow(z.i, 2)) + c.r;
-	m.i = (2 * z.r * z.i) + c.i;
-	return (m);
-}
-
-t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp)
-{
-	(void)exp;
-	z.i = -z.i;
-	return (znc(z, c, exp));
-}
-
-t_vec2	bship(t_vec2 z, t_vec2 c, int exp)
-{
-	(void)exp;
-	z.r = fabsl(z.r);
-	z.i = fabsl(z.i);
-	return (znc(z, c, exp));
+	if (keycode == ESC)
+		exit(0);
+	else if (keycode == UP || keycode == W)
+		f->center.y += 40.0 / f->zoom;
+	else if (keycode == DOWN || keycode == S)
+		f->center.y -= 40.0 / f->zoom;
+	else if (keycode == LEFT || keycode == A)
+		f->center.x -= 40.0 / f->zoom;
+	else if (keycode == RIGHT || keycode == D)
+		f->center.x += 40.0 / f->zoom;
+	return (0);
 }

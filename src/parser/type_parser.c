@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/19 17:19:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 16:08:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "fractol.h"
 #include "parser.h"
 
-void	julia_usage()
+void	julia_usage(void)
 {
 	ft_printf("usage: fract-ol fractal_type");
 	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
@@ -26,7 +26,7 @@ void	julia_usage()
 	exit(0);
 }
 
-void	mandelbrot_usage()
+void	mandelbrot_usage(void)
 {
 	ft_printf("usage: fract-ol fractal_type");
 	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
@@ -36,7 +36,7 @@ void	mandelbrot_usage()
 	exit(0);
 }
 
-void	type_usage()
+void	type_usage(void)
 {
 	ft_printf("usage: fract-ol fractal_type");
 	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");

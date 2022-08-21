@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 14:25:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:01:59 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define RAN_N 6
 
 # include "ft_math.h"
+# include "temp.h"
 
 typedef	t_vec2 (*t_func)(t_vec2, t_vec2, int);
 typedef enum e_fractal

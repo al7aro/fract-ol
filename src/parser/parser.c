@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/19 17:30:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:46:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_err	parse_args(int argc, char **argv, t_fract *f)
 	{
 		valid(argc, argv);
 		opt.cnt = 0;
-		render_check(argc, argv, f, &opt); 
+		render_check(argc, argv, f, &opt);
 		func_check(argc, argv, f, &opt);
 		exp_check(argc, argv, f, &opt);
 		zoom_check(argc, argv, f, &opt);

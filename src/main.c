@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 14:25:19 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:53:03 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ int	main(int argc, char **argv)
 	update_world(&frac);
 	print_info(frac);
 	mlx_hook(mlx.win, 17, 0, clean_exit, NULL);
-	mlx_hook(mlx.win, 2, 0, key_pressed, &frac);
-	mlx_hook(mlx.win, 6, 0, mouse_move, &frac);
-	mlx_mouse_hook(mlx.win, mouse_pressed, &frac);
+	mlx_hook(mlx.win, 2, 0, hook_key_pressed, &frac);
+	mlx_hook(mlx.win, 6, 0, hook_mouse_move, &frac);
+	mlx_mouse_hook(mlx.win, hook_mouse_pressed, &frac);
 	mlx_loop_hook(mlx.mlx, on_loop, &frac);
 	mlx_loop(mlx.mlx);
 	return (0);

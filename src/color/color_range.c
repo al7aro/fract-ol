@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@41.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 022/08/19 17:34:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:23:43 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:45:24 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	color_range(long double c, int *colors, int n)
 	int			cnt;
 	long double	step;
 
-	n--;
-	step = 1.0 / n;
+	step = 1.0 / --n;
 	cnt = -1;
 	while (++cnt <= n)
 	{
