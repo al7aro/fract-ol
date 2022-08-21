@@ -1,7 +1,7 @@
 # fract-ol - Fractal explorer
 
 	Press M to open status menu
-	Press X to render current frame
+	Press X to save current frame to ./renders/new.ppm (overrides previous)
 	Press C to change color palette
 	Press J to change to julia set (using screen center as initial conditions)
 	Press - to decrease iteration count
