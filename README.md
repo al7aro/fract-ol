@@ -19,7 +19,6 @@
 ![Alt Text](renders/r3.jpg)
 ![Alt Text](renders/r4.jpg)
 ![Alt Text](renders/r5.jpg)
-![Alt Text](renders/r6.jpg)
 
 ---
 
