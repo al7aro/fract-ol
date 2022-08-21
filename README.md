@@ -44,3 +44,7 @@
 - Ftoa no funciona bien para numeros entre -1 y 0
 - Crear otra imagen con Mandebrot indicando el punto inicial de Julia
 - Anadir boton para volver a estado inicial
+
+# TODO!!!!!!!!!!1!111!!!!!!!!!
+
+[ ] STOP OVER COMPLICATING THIS INITIALY EASY PROJECT
