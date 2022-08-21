@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 04:23:34 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 05:06:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	key_pressed(int keycode, void *param)
 		f->ran_sel++;
 	else if (keycode == X)
 		render_export(f);
+	else if (keycode == SPACE)
+		f->moving_julia = !f->moving_julia;
 	else if (keycode == J)
 	{
 		if (f->type == MANDELBROT)
