@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 14:06:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:26:18 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ int	draw_call(t_fract *f, int x, int y)
 
 	side = 20;
 	cnt = -1;
-	while (++cnt < (*(f->ran + f->ran_sel % 5)).size)
+	while (++cnt < (*(f->ran + f->ran_sel % RAN_N)).size)
 	{
 		if (abs(x - (30 + 40 * cnt)) < side
 				&& fabs(y - (f->menu->img_h * 0.85)) < side)
-			return (*(f->ran + f->ran_sel % 5)).ran[cnt];
+			return (*(f->ran + f->ran_sel % RAN_N)).ran[cnt];
 	}
 	return (0);
 }

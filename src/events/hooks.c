@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 14:11:56 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:33:44 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	key_pressed(int keycode, void *param)
 {
 	t_fract	*f;
 
-	ft_printf("KEY: %d\n", keycode);
+//	ft_printf("KEY: %d\n", keycode);
 	f = (t_fract *)param;
 	if (keycode == ESC)
 		exit(0);

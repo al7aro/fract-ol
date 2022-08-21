@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:59:12 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:25:03 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define X2K 2048
 # define Y2K 1080
 # define FUNC_N 3
-# define RAN_N 5
+# define RAN_N 6
 
 # include "ft_math.h"
 
