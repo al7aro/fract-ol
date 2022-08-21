@@ -14,7 +14,7 @@
 	Use SCROLL WHEEL to zoom
 	Use WASD or ARROWS to move
 
-![Alt Text](renders/r12.png)
+![Alt Text](renders/r12.jpg)
 ![Alt Text](renders/r9.jpg)
 ![Alt Text](renders/r7.jpg)
 ![Alt Text](renders/r8.jpg)
