@@ -1,7 +1,7 @@
 # fract-ol - Fractal explorer
 
 	Press M to open status menu
-	Press X to render current image
+	Press X to render current frame
 	Press C to change color palette
 	Press J to change to julia set (using screen center as initial conditions)
 	Press - to decrease iteration count
@@ -9,6 +9,7 @@
 	Press DEL to decrease resolution
 	Press INTRO to increase resolution
 	Use SCROLL WHEEL to zoom
+	Use WASD or ARROWS to move
 
 ![Alt Text](renders/r9.jpg)
 ![Alt Text](renders/r7.jpg)
