@@ -10,7 +10,7 @@
 	Press MRB to change to go back to Mandelbrot set at previous pos
 	Press J to move Julia set using mouse (according to mouse coordinates)
 		Press again to go back to Mandelbrot
-	Pres SPACE once you find a nice set to prevent Julia from moving
+		Pres SPACE once you find a nice set to prevent Julia from moving
 	Press - to decrease iteration count
 	Press + to increase iteration count
 	Press DEL to decrease resolution
