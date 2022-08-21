@@ -4,7 +4,7 @@
 	MOVE USING A SMALL RESOLUTION FOR A BETTER EXPERIENCE
 	
 	Press M to open status menu
-	Press X to save current frame to ./renders/new.ppm (overrides previous)
+	Press X to save current frame (2K) to ./renders/new.ppm (overrides previous)
 	Press C to change color palette
 	Press J to change to julia set (using screen center as initial conditions)
 	Press - to decrease iteration count
