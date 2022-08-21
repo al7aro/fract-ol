@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 17:53:03 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:10:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #include "hooks.h"
 #include "parser.h"
 #include "error.h"
-#define FT_WIDTH 1920
-#define FT_HEIGHT 1080
+#define FT_WIDTH 1000
+#define FT_HEIGHT 1000
 
 void	exit_status(t_err status)
 {
