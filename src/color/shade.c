@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:14:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:59:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ int	shade(int x, int y, t_fract f, char export)
 	col -= (int)col;
 	if (col < 0)
 		return (0);
-	return (color_range(col, (*(f.ran + (f.ran_sel % 5))).ran, (*(f.ran + (f.ran_sel % 5))).size));
+	return (color_range(col, (*(f.ran + (f.ran_sel % FUNC_N))).ran, (*(f.ran + (f.ran_sel % FUNC_N))).size));
 }

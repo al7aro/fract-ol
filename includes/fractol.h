@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:19:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:59:12 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 # define MIN_ZOOM 300.0
 # define X2K 2048
 # define Y2K 1080
+# define FUNC_N 3
+# define RAN_N 5
 
 # include "ft_math.h"
 
+typedef	t_vec2 (*t_func)(t_vec2, t_vec2, int);
 typedef enum e_fractal
 {
 	JULIA,
@@ -65,7 +68,7 @@ typedef struct s_fract
 	t_mlx		*mlx;
 	t_img		*img;
 	t_img		*menu;
-	t_ran		ran[5];
+	t_ran		ran[RAN_N];
 	char		ran_sel;
 	char		menu_toggle;
 	t_vec2		center;
@@ -77,7 +80,8 @@ typedef struct s_fract
 	double		zoom;
 	double		szoom;
 	t_fractal	type;
-	void		*func;
+	t_func		func[FUNC_N];
+	char		func_sel;
 	double		it;
 	int			exp;
 	t_vec2		julia_init;

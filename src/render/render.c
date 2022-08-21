@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 02:06:37 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:06:16 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,19 +138,29 @@ int	render_menu(t_fract *f)
 	//Func
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 			f->menu->ypos + f->menu->img_h * 0.1 + 180, 0x0000FFFF, "FUNCTION: ");
-	if (f->func == znc)
+	if (*(f->func + f->func_sel % FUNC_N) == znc)
+	{
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 110,
+				f->menu->ypos + f->menu->img_h * 0.1 + 180, 0x00FFFFFF, "Mandelbrot");
 		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z = z^exp + c");
-	else if (f->func == ncorn)
+	}
+	else if (*(f->func + f->func_sel % FUNC_N) == ncorn)
 	{
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 110,
+				f->menu->ypos + f->menu->img_h * 0.1 + 180, 0x00FFFFFF, "NCORN");
 		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z.Im = -z.Im");
 		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 				f->menu->ypos + f->menu->img_h * 0.1 + 220, 0x00FFFFFF, "z = z^exp + c");
 	}
-	else if (f->func == bship)
+	else if (*(f->func + f->func_sel % FUNC_N) == bship)
+	{
+		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 110,
+				f->menu->ypos + f->menu->img_h * 0.1 + 180, 0x00FFFFFF, "B. Ship");
 		mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 				f->menu->ypos + f->menu->img_h * 0.1 + 200, 0x00FFFFFF, "z = abs(z)^exp + c");
+	}
 	//Exp
 	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + 10,
 			f->menu->ypos + f->menu->img_h * 0.1 + 240, 0x00FFFFFF, "Exp: ");

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:41:41 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:57:19 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	init_fract(t_fract *f)
 	f->moving_julia = 0;
 	f->exp = 2;
 	f->type = KO;
-	f->func = znc;
+	*(f->func) = znc;
+	*(f->func + 1) = bship;
+	*(f->func + 2) = ncorn;
 	f->menu_toggle = 0;
 	(*(f->ran + 0)) = (t_ran){{0xE0E0E0, 0x818181, 0x606060, 0x3B3B3B, 0x262626}, 5};
 	(*(f->ran + 1)) = (t_ran){{0x9E95ED, 0xC161DC, 0x4ED3B0, 0xF2B061, 0xF76E61}, 5};
@@ -58,6 +60,7 @@ void	init_fract(t_fract *f)
 	(*(f->ran + 3)) = (t_ran){{0xc2ffc2, 0x88b388, 0xf0fff0, 0xe1ffe1, 0xffffff}, 5};
 	(*(f->ran + 4)) = (t_ran){{0xe74645, 0xfb7756, 0xfacd60, 0xfdfa66, 0x1ac0c6}, 5};
 	f->ran_sel = 1;
+	f->func_sel = 0;
 }
 
 int	main(int argc, char **argv)

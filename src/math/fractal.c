@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:46:04 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:22:24 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:57:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	diverges(t_fract f, void *init_z, void *init_c)
 	}
 	while ((i_cnt++ < f.it) && l < 2)
 	{
-		z = ((t_vec2 (*)())f.func)(z, c, 0);
+		z = (*(f.func + f.func_sel % FUNC_N))(z, c, 0);
 		l = ft_length(z.r, z.i);
 	}
 	if (l > 2)

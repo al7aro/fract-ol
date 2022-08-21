@@ -8,6 +8,7 @@
 	Press C to change color palette
 	Press MLB to change to Julia set (using mouse coordinates)
 	Press MRB to change to go back to Mandelbrot set at previous pos
+	Press F to cycle between available fractal functions
 	Press J to move Julia set using mouse (according to mouse coordinates)
 		Press again to go back to Mandelbrot
 		Pres SPACE once you find a nice set to prevent Julia from moving
