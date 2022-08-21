@@ -6,7 +6,10 @@
 	Press M to open status menu
 	Press X to save current frame (2K) to ./renders/new.ppm (overrides previous)
 	Press C to change color palette
-	Press J to change to julia set (using screen center as initial conditions)
+	Press MLB to change to Julia set (using mouse coordinates)
+	Press MRB to change to go back to Mandelbrot set at previous pos
+	Press J to move Julia set using mouse (according to mouse coordinates)
+		Press again to go back to Mandelbrot
 	Press - to decrease iteration count
 	Press + to increase iteration count
 	Press DEL to decrease resolution
@@ -32,3 +35,4 @@
 - Cambiar por teclado la funcion usada
 - Que los nuevos render tengan nuevos nombres
 - Hacer otro menu negro (imagen) para mostrar los controles
+- Ftoa no funciona bien para numeros entre -1 y 0

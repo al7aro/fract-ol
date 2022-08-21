@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:32:31 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 18:31:52 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 03:10:58 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ char	*ft_ftoa(long double num, int prc)
 	char			*f_aux;
 	long double		f_part;
 
-	str_num = ft_itoa((int)num);
+	if (num < 0 && num > -1)
+		str_num = ft_strdup("-0");
+	else
+		str_num = ft_itoa((int)num);
 	num = num * ((num < 0) * -1 + !(num < 0) * 1);
 	f_part = num - (int)num;
 	aux = ft_strjoin(str_num, ".");

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 02:07:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 04:44:35 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ void	init_fract(t_fract *f)
 	f->szoom = 4;
 	f->center.x = 0.0;
 	f->center.y = 0.0;
+	f->prev_center.x = 0.0;
+	f->prev_center.y = 0.0;
 	f->julia_init.r = 0.0;
 	f->julia_init.i = 0.0;
+	f->moving_julia = 0;
 	f->exp = 2;
 	f->type = KO;
 	f->func = znc;
@@ -76,6 +79,7 @@ int	main(int argc, char **argv)
 	print_info(frac);
 	mlx_hook(mlx.win, 17, 0, clean_exit, NULL);
 	mlx_hook(mlx.win, 2, 0, key_pressed, &frac);
+	mlx_hook(mlx.win, 6, 0, mouse_move, &frac);
 	mlx_mouse_hook(mlx.win, mouse_pressed, &frac);
 	mlx_loop_hook(mlx.mlx, on_loop, &frac);
 	mlx_loop(mlx.mlx);

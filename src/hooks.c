@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 02:35:58 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 04:23:34 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <math.h>
 #include "keycodes.h"
 #include "ft_printf.h"
+#include "libft.h"
 #include "fractol.h"
 #include "utils.h"
 #include "ft_math.h"
@@ -54,17 +55,20 @@ int	key_pressed(int keycode, void *param)
 	{
 		if (f->type == MANDELBROT)
 		{
-			f->julia_init = (t_vec2){{f->center.x}, {f->center.y}};
+			f->moving_julia = 1;
+			f->julia_init = (t_vec2){{f->mouse_pos.x}, {f->mouse_pos.y}};
+			f->prev_center = (t_vec2){{f->center.x}, {f->center.y}};
 			f->type = JULIA;
 			f->prev_zoom = f->zoom;
 			f->zoom = MIN_ZOOM;
 			f->center = (t_vec2){{0}, {0}};
 		}
-		else if (f->type == JULIA) 
+		else if (f->type == JULIA)
 		{
+			f->moving_julia = 0;
 			f->zoom = f->prev_zoom;
 			f->type = MANDELBROT;
-			f->center = (t_vec2){{f->julia_init.x}, {f->julia_init.y}};
+			f->center = (t_vec2){{f->prev_center.x}, {f->prev_center.y}};
 		}
 	}
 	else if (keycode == INTRO)
@@ -97,5 +101,48 @@ int	mouse_pressed(int button, int x, int y, void *param)
 		f->center.y = -(w.i - (prev_zoom * (w.i + f->center.y) / f->zoom));
 		update_world(f);
 	}
+	if (button == MLB && f->type == MANDELBROT)
+	{
+		f->julia_init = (t_vec2){{f->mouse_pos.x}, {f->mouse_pos.y}};
+		f->prev_center = (t_vec2){{f->center.x}, {f->center.y}};
+		f->type = JULIA;
+		f->prev_zoom = f->zoom;
+		f->zoom = MIN_ZOOM;
+		f->center = (t_vec2){{0}, {0}};
+	}
+	if (button == MRB && f->type == JULIA)
+	{
+		f->zoom = f->prev_zoom;
+		f->type = MANDELBROT;
+		f->center = (t_vec2){{f->prev_center.x}, {f->prev_center.y}};
+		f->moving_julia = 0;
+	}
+	update_world(f);
+	return (0);
+}
+
+int	mouse_move(int x, int y, void *param)
+{
+	t_fract	*f;
+	t_vec2	c;
+	double	temp;
+	t_vec2	temp_center;
+
+	f = (t_fract *)param;
+	c = screen_to_world(*f, x, y);
+	if (f->moving_julia)
+	{
+		temp = f->zoom; 
+		f->zoom = f->prev_zoom;
+		temp_center = (t_vec2){{f->center.x}, {f->center.y}};
+		f->center = (t_vec2){{f->prev_center.x}, {f->prev_center.y}};
+		update_world(f);
+		c = screen_to_world(*f, x, y);
+		f->julia_init = c;
+		f->zoom = temp;
+		f->center = (t_vec2){{temp_center.x}, {temp_center.y}};
+		update_world(f);
+	}
+	f->mouse_pos = c;
 	return (0);
 }

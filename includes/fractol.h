@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 01:04:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/21 03:54:18 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ typedef struct s_fract
 	char		ran_sel;
 	char		menu_toggle;
 	t_vec2		center;
+	t_vec2		prev_center;
+	t_vec2		mouse_pos;
+	char		moving_julia;
 	double		world[4];
 	double		prev_zoom;
 	double		zoom;
