@@ -1,6 +1,6 @@
 # fract-ol - Fractal explorer
 
-	COMPILE USING make fast FOR A BETTER EXPERIENCE
+	COMPILE USING "make fast" FOR A BETTER EXPERIENCE
 	MOVE USING A SMALL RESOLUTION FOR A BETTER EXPERIENCE
 
 	Press M to open status menu
