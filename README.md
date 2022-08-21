@@ -43,3 +43,4 @@
 - Hacer otro menu negro (imagen) para mostrar los controles
 - Ftoa no funciona bien para numeros entre -1 y 0
 - Crear otra imagen con Mandebrot indicando el punto inicial de Julia
+- Anadir boton para volver a estado inicial
