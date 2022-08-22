@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:05:12 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 17:59:34 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/22 03:08:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ int	type(int keycode, t_fract *f)
 
 int	mouse_type(int button, int x, int y, t_fract *f)
 {
-	t_vec2		w;
-	long double	prev_zoom;
-
-	w = screen_to_world(*f, x, y);
-	prev_zoom = f->zoom;
+	(void)x;
+	(void)y;
 	if (button == MLB && f->type == MANDELBROT)
 	{
 		f->julia_init = (t_vec2){{f->mouse_pos.x}, {f->mouse_pos.y}};

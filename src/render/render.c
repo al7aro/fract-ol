@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_color.c                                       :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 14:26:18 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/22 03:08:47 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,12 +180,10 @@ int	render_export(t_fract *f)
 	int		y;
 	int		completed;
 	char	*scolor;
-	t_img	*img;
 
 	completed = 0;
 	render_menu(f);
 	fd = open("renders/new.ppm", O_CREAT | O_RDWR);
-	img = f->img;
 	y = -1;
 	write(fd, "P3\n2048 1080\n255\n", 17);
 	f->img->aspect = (double)f->render_w / (double)f->render_h;

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 03:42:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/22 03:07:57 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,8 @@ int	setup(t_fract *fract, int width, int height)
 void	print_info(t_fract fract)
 {
 	t_mlx	mlx;
-	t_img	img;
 
 	mlx = *fract.mlx;
-	img = *fract.img;
 	ft_printf("WELCOME TO THE WOLD OF:\n");
 	ft_printf("███████╗██████╗░░█████╗░░█████╗░╗░█████╗░░░░ █████  ██╗░░░░░\n");
 	ft_printf("██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝ ░░██╔══██╗██║░░░░░\n");

@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/21 17:20:04 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/22 03:09:56 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,15 +45,17 @@ I_LIBFT_H	 	= $(I_LIBFT)/libft.h
 	#---------- MLX ------------------------------------------------------------
 M_MLX_DIR 		= $(MLX_DIR)/Makefile
 
-#MLX_LIB		= mlx
-#MLX_DIR 		= $(SRC_DIR)/mlx
-#MLX_LIBDIR 	= $(SRC_DIR)/mlx
-#I_MLX 			= $(MLX_DIR)/includes
+#-----COMPATIBLE WITH APPLE M1-----
+MLX_LIB		= mlx
+MLX_DIR 		= $(SRC_DIR)/mlx
+MLX_LIBDIR 	= $(SRC_DIR)/mlx
+I_MLX 			= $(MLX_DIR)/includes
 
-MLX_LIB			= mlx
-MLX_DIR 		= $(SRC_DIR)/mlx2020
-MLX_LIBDIR		= ./
-I_MLX 			= $(MLX_DIR)
+#-----minilibx2020-----
+#MLX_LIB			= mlx
+#MLX_DIR 		= $(SRC_DIR)/mlx2020
+#MLX_LIBDIR		= ./
+#I_MLX 			= $(MLX_DIR)
 
 I_MLX_H		 	= $(wildcard $(I_MLX)/*.h)
 #---------- fract-ol -----------------------------------------------------------
