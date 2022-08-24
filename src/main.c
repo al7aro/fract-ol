@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 18:10:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/24 02:38:41 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,17 @@
 #include "hooks.h"
 #include "parser.h"
 #include "error.h"
-#define FT_WIDTH 1000
-#define FT_HEIGHT 1000
-
-void	exit_status(t_err status)
-{
-	if (status == INVALID_ARGUMENT)
-		exit(1);
-}
+#define FT_WIDTH 700
+#define FT_HEIGHT 700
 
 int	clean_exit(void *param)
 {
-	(void)param;
+	t_fract	*f;
+
+	ft_printf("Program closed suscesfully!\n");
+	f = (t_fract *)param;
+	mlx_destroy_window(f->mlx->mlx, f->mlx->win);
+	free(f->mlx->mlx);
 	exit(0);
 }
 
@@ -64,6 +63,11 @@ void	init_fract(t_fract *f)
 	f->func_sel = 0;
 }
 
+void	l(void)
+{
+	system("leaks fract-ol");
+}
+
 int	main(int argc, char **argv)
 {
 	t_mlx	mlx;
@@ -71,17 +75,18 @@ int	main(int argc, char **argv)
 	t_img	menu;
 	t_fract	frac;
 
+	atexit(l);
 	frac.mlx = &mlx;
 	frac.img = &main_buffer;
 	frac.menu = &menu;
 	init_fract(&frac);
 	if (parse_args(argc, argv, &frac) != OK)
-		exit_status(INVALID_ARGUMENT);
+		clean_exit(&frac);
 	if (setup(&frac, FT_WIDTH, FT_HEIGHT))
-		exit_status(OK);
+		clean_exit(&frac);
 	update_world(&frac);
 	print_info(frac);
-	mlx_hook(mlx.win, 17, 0, clean_exit, NULL);
+	mlx_hook(mlx.win, 17, 0, clean_exit, &frac);
 	mlx_hook(mlx.win, 2, 0, hook_key_pressed, &frac);
 	mlx_hook(mlx.win, 6, 0, hook_mouse_move, &frac);
 	mlx_mouse_hook(mlx.win, hook_mouse_pressed, &frac);

@@ -6,11 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:16:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/22 03:07:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/24 02:41:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+#include "utils.h"
 #include "fractol.h"
 #include "ft_printf.h"
 #include "ft_math.h"
@@ -73,9 +74,7 @@ int	setup(t_fract *fract, int width, int height)
 
 void	print_info(t_fract fract)
 {
-	t_mlx	mlx;
-
-	mlx = *fract.mlx;
+	(void)fract;
 	ft_printf("WELCOME TO THE WOLD OF:\n");
 	ft_printf("███████╗██████╗░░█████╗░░█████╗░╗░█████╗░░░░ █████  ██╗░░░░░\n");
 	ft_printf("██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝ ░░██╔══██╗██║░░░░░\n");
@@ -84,10 +83,4 @@ void	print_info(t_fract fract)
 	ft_printf("██║░░░░░██║░░██║██║░░██║╚█████╔╝░░░██║░░░░░░╚█████╔╝███████╗\n");
 	ft_printf("╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░░░░╚════╝░╚══════╝\n");
 	ft_printf("------------------------------------------------------------\n");
-	if (fract.type == JULIA)
-		ft_printf("Rendering a JULIA like fractal!\n");
-	else if (fract.type == MANDELBROT)
-		ft_printf("Rendering a MANDELBROT like fractal!\n");
-	ft_printf("Window Width: %d\n", mlx.win_w);
-	ft_printf("Window Height: %d\n", mlx.win_h);
 }

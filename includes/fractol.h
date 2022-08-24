@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 18:01:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/24 02:37:37 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include "ft_math.h"
 # include "temp.h"
 
-typedef	t_vec2 (*t_func)(t_vec2, t_vec2, int);
+typedef t_vec2	(*t_func)(t_vec2, t_vec2, int);
 typedef enum e_fractal
 {
 	JULIA,
@@ -95,5 +95,7 @@ t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp);
 t_vec2	bship(t_vec2 z, t_vec2 c, int exp);
 int		diverges(t_fract f, void *z, void *c);
+int		render_export(t_fract *f);
+int		render_menu(t_fract *f);
 
 #endif

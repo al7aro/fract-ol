@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/22 03:09:56 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/24 02:36:20 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME 			= fract-ol
 M_FTPF 			= $(FTPF_DIR)/Makefile
 
 FTPF_LIB		= ftprintf
-FTPF_DIR 		= $(DIR)/src/ft_printf
+FTPF_DIR 		= $(DIR)/src/libs/ft_printf
 FTPF_SRC_DIR 		= $(FTPFT_DIR)/srcs
 FTPF_SRC 		= $(wildcard $(FTPF_SRC_DIR)/*.c)
 FTPF_A 			= $(FTPF_DIR)/lib$(FTPF_LIB).a
@@ -46,14 +46,14 @@ I_LIBFT_H	 	= $(I_LIBFT)/libft.h
 M_MLX_DIR 		= $(MLX_DIR)/Makefile
 
 #-----COMPATIBLE WITH APPLE M1-----
-MLX_LIB		= mlx
-MLX_DIR 		= $(SRC_DIR)/mlx
-MLX_LIBDIR 	= $(SRC_DIR)/mlx
+MLX_LIB			= mlx
+MLX_DIR 		= $(SRC_DIR)/libs/mlx
+MLX_LIBDIR 		= $(SRC_DIR)/libs/mlx
 I_MLX 			= $(MLX_DIR)/includes
 
 #-----minilibx2020-----
 #MLX_LIB			= mlx
-#MLX_DIR 		= $(SRC_DIR)/mlx2020
+#MLX_DIR 		= $(SRC_DIR)/libs/mlx2020
 #MLX_LIBDIR		= ./
 #I_MLX 			= $(MLX_DIR)
 
@@ -79,7 +79,7 @@ SRC_PARSER_C 	= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
 SRC_MATH_C 		= math.c fractal.c funcs.c 
 SRC_EVENTS_C	= hooks.c iter.c menu.c move.c type.c visual.c 
 SRC_COLOR_C		= shade.c color_range.c
-SRC_RENDER_C	= render.c
+SRC_RENDER_C	= render_menu.c render.c export.c
 SRC 			= $(patsubst %.c, $(SRC_DIR)/%.c, $(SRC_FRACTOL_C)) \
 				$(patsubst %.c, $(SRC_PARSER)/%.c, $(SRC_PARSER_C)) \
 				$(patsubst %.c, $(SRC_EVENTS)/%.c, $(SRC_EVENTS_C)) \
