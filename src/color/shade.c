@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:35:56 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 15:44:58 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:29:18 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ int	shade(int x, int y, t_fract f, char export)
 	int			w;
 	int			h;
 
-	w = f.render_w;
-	h = f.render_h;
+	w = X2K;
+	h = Y2K;
 	if (!export)
 	{
-		w = f.img->img_w;
-		h = f.img->img_h;
+		w = f.img->res.w;
+		h = f.img->res.h;
 	}
 	c.r = ((double)x / (double)w
 			* (f.world[2] - f.world[0])) + f.world[0];

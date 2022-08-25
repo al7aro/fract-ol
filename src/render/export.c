@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:04:34 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 01:28:56 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:57:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	write_color(int fd, int col)
 	write(fd, "\n", 1);
 }
 
-int	render_export(t_fract *f)
+void	render_export(t_fract *f)
 {
 	int		fd;
 	int		x;
@@ -48,20 +48,20 @@ int	render_export(t_fract *f)
 	fd = open("renders/new.ppm", O_CREAT | O_RDWR);
 	y = -1;
 	write(fd, "P3\n2048 1080\n255\n", 17);
-	f->img->aspect = (double)f->render_w / (double)f->render_h;
+	f->img->aspect = (double)X2K / (double)Y2K;
 	update_world(f);
-	while (++y < f->render_h)
+	while (++y < Y2K)
 	{
 		x = -1;
-		while (++x < f->render_h)
+		while (++x < Y2K)
 			write_color(fd, shade(x, y, *f, 1));
-		completed = y * 100 / f->render_h;
+		completed = y * 100 / Y2K;
 		mlx_string_put(f->mlx->mlx, f->mlx->win,
-			((float)(completed / (float)100)) * (f->menu->img_w - 10),
-			f->menu->ypos + f->menu->img_h - 20, 0x00FF0000, ".");
+			((float)(completed / (float)100)) * (f->menu->res.w - 10),
+			f->menu->pos.y + f->menu->res.h - 20, 0x00FF0000, ".");
 		mlx_do_sync(f->mlx->mlx);
 	}
-	f->img->aspect = (double)f->mlx->win_w / (double)f->mlx->win_h;
+	f->img->aspect = (double)f->mlx->res.w / (double)f->mlx->res.h;
 	update_world(f);
-	return (close(fd));
+	close(fd);
 }

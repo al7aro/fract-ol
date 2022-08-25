@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 01:52:35 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:55:44 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	pixel_buffer_put(t_img *img, int x, int y, int c)
 	return (0);
 }
 
-int	render_fractal(t_fract *f)
+void	render_fractal(t_fract *f)
 {
 	int		col;
 	int		x;
@@ -47,11 +47,11 @@ int	render_fractal(t_fract *f)
 
 	img = f->img;
 	y = -1;
-	y_limit = img->img_h;
+	y_limit = img->res.h;
 	while (++y < y_limit)
 	{
 		x = -1;
-		while (++x < img->img_w)
+		while (++x < img->res.w)
 		{
 			if (!(x % f->render_factor))
 				col = shade(x, y, *f, 0);
@@ -59,7 +59,6 @@ int	render_fractal(t_fract *f)
 		}
 	}
 	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->img->img, 0, 0);
-	return (0);
 }
 
 int	on_loop(void **param)

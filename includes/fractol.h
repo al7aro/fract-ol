@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 02:37:37 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:56:33 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ typedef struct s_img
 	int		bpp;
 	int		line_size;
 	int		endi;
-	int		xpos;
-	int		ypos;
-	int		img_w;
-	int		img_h;
+	t_vec2	pos;
+	t_vec2	res;
 	double	aspect;
 }		t_img;
 
@@ -54,8 +52,9 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-	int		win_w;
-	int		win_h;
+	t_vec2	res;
+	//int		win_w;
+	//int		win_h;
 }		t_mlx;
 
 typedef struct s_ran
@@ -87,15 +86,13 @@ typedef struct s_fract
 	int			exp;
 	t_vec2		julia_init;
 	int			render_factor;
-	int			render_w;
-	int			render_h;
 }				t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp);
 t_vec2	bship(t_vec2 z, t_vec2 c, int exp);
 int		diverges(t_fract f, void *z, void *c);
-int		render_export(t_fract *f);
-int		render_menu(t_fract *f);
+void	render_export(t_fract *f);
+void	render_menu(t_fract *f);
 
 #endif

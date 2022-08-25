@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:36:26 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 19:13:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:56:07 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	wrgbw_range(long double c);
 int	swamp_range(long double c);
 int	color_range(long double c, int *colors, int n);
 
-int	render_export(t_fract *f);
+void	render_export(t_fract *f);
 #endif

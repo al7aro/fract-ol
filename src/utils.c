@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 02:14:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:14:26 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:27:26 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_vec2	screen_to_world(t_fract f, int x, int y)
 {
 	t_vec2	c;
 
-	c.r = ((double)x / (double)f.img->img_w
+	c.r = ((double)x / (double)f.img->res.w
 			* (f.world[2] - f.world[0])) + f.world[0];
-	c.i = ((double)y / (double)f.img->img_h
+	c.i = ((double)y / (double)f.img->res.h
 			* (f.world[3] - f.world[1])) + f.world[1];
 	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:50:06 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 02:46:44 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:55:14 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,10 @@
 #include <fcntl.h>
 #include <math.h>
 
-int	draw_call(t_fract *f, int x, int y)
-{
-	int	cnt;
-	int	side;
-
-	side = 20;
-	cnt = -1;
-	while (++cnt < (*(f->ran + f->ran_sel % RAN_N)).size)
-	{
-		if (abs(x - (30 + 40 * cnt)) < side
-			&& fabs(y - (f->menu->img_h * 0.85)) < side)
-			return ((*(f->ran + f->ran_sel % RAN_N)).ran[cnt]);
-	}
-	return (0);
-}
-
 char	*str_to_win(t_fract *f, char *str, int x, int y)
 {
-	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->xpos + x,
-		f->menu->ypos + y, 0x00FFFFFF, str);
+	mlx_string_put(f->mlx->mlx, f->mlx->win, f->menu->pos.x + x,
+		f->menu->pos.y + y, 0x00FFFFFF, str);
 	return (str);
 }
 
@@ -47,10 +31,10 @@ void	put_status_str(t_fract *f)
 	char	*tmp;
 
 	str_to_win(f, "--------STATUS--------", 0, 20);
-	tmp = ft_ftoa(f->mlx->win_w, 9);
+	tmp = ft_ftoa(f->mlx->res.w, 9);
 	free(str_to_win(f, ft_strjoin("WIDTH: ", tmp), 10, 40));
 	free(tmp);
-	tmp = ft_ftoa(f->mlx->win_h, 9);
+	tmp = ft_ftoa(f->mlx->res.h, 9);
 	free(str_to_win(f, ft_strjoin("HEIGHT: ", tmp), 10, 60));
 	free(tmp);
 	tmp = ft_ftoa(f->center.x, 9);
@@ -110,25 +94,34 @@ void	put_function_str(t_fract *f)
 		str_to_win(f, "B. SHIP", 80, 240);
 		str_to_win(f, "z = abs(z)^exp + c", 10, 280);
 	}
+	str_to_win(f, "COLOR PALETTE", 10, 320);
 }
 
-int	render_menu(t_fract *f)
+void	render_menu(t_fract *f)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
+	int	col;
+	int	cnt;
 
 	y = -1;
-	while (++y < f->menu->img_h)
+	while (++y < f->menu->res.h)
 	{
 		x = -1;
-		while (++x < f->menu->img_w)
-			pixel_buffer_put(f->menu, x, y, draw_call(f, x, y));
+		while (++x < f->menu->res.w)
+		{
+			cnt = -1;
+			col = 0;
+			while (++cnt < (*(f->ran + f->ran_sel % RAN_N)).size)
+				if (abs(x - (30 + 40 * cnt)) < 20
+					&& fabs(y - (f->menu->res.h * 0.85)) < 20)
+					col = ((*(f->ran + f->ran_sel % RAN_N)).ran[cnt]);
+			pixel_buffer_put(f->menu, x, y, col);
+		}
 	}
 	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->menu->img,
-		f->menu->xpos, f->menu->ypos);
+		f->menu->pos.x, f->menu->pos.y);
 	put_status_str(f);
 	put_op_str(f);
 	put_function_str(f);
-	str_to_win(f, "COLOR PALETTE", 10, 320);
-	return (0);
 }
