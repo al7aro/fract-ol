@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:04:34 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:57:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:11:40 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "utils.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include "render.h"
 #include <fcntl.h>
 #include <math.h>
 

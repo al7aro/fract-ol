@@ -6,11 +6,10 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:37:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:06:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
 #include "parser.h"
 #include "libft.h"
 #include "fractol.h"

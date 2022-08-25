@@ -6,14 +6,13 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:07:28 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:05:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "ft_printf.h"
 #include "libft.h"
-#include "error.h"
 #include "parser.h"
 
 void	usage(void)
@@ -73,7 +72,7 @@ int	check_compatible(t_opt opt)
 /*
  * First arg MUST be fractal type
  * */
-t_err	parse_args(int argc, char **argv, t_fract *f)
+int	parse_args(int argc, char **argv, t_fract *f)
 {
 	t_opt	opt;
 
@@ -94,5 +93,5 @@ t_err	parse_args(int argc, char **argv, t_fract *f)
 	}
 	if (check_compatible(opt))
 		usage();
-	return (OK);
+	return (0);
 }

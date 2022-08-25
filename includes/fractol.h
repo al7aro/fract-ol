@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:56:33 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:12:16 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	t_vec2	res;
-	//int		win_w;
-	//int		win_h;
 }		t_mlx;
 
 typedef struct s_ran
@@ -92,7 +90,5 @@ t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp);
 t_vec2	bship(t_vec2 z, t_vec2 c, int exp);
 int		diverges(t_fract f, void *z, void *c);
-void	render_export(t_fract *f);
-void	render_menu(t_fract *f);
 
 #endif

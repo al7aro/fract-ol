@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:13:15 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:07:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "shade.h"
 #include "hooks.h"
 #include "parser.h"
-#include "error.h"
 #define FT_WIDTH 700
 #define FT_HEIGHT 700
 
@@ -50,7 +49,7 @@ int	main(int argc, char **argv)
 	frac.img = &main_buffer;
 	frac.menu = &menu;
 	init_fract(&frac);
-	if (parse_args(argc, argv, &frac) != OK)
+	if (parse_args(argc, argv, &frac))
 		clean_exit(&frac);
 	if (setup(&frac, FT_WIDTH, FT_HEIGHT))
 		clean_exit(&frac);

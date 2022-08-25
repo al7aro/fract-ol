@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:01 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 18:07:21 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:11:11 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "keycodes.h"
 #include "shade.h"
 #include "utils.h"
+#include "render.h"
 
 int	visual(int keycode, t_fract *f)
 {

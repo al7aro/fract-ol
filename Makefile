@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/25 02:14:33 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/25 03:20:00 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,8 @@ I_MLX_H		 	= $(wildcard $(I_MLX)/*.h)
 #---------- fract-ol -----------------------------------------------------------
 #---------- INCLUDES ----------
 I_DIR 			= $(DIR)/includes
-I_H 			= error.h fractol.h ft_math.h hooks.h keycodes.h \
-				  parser.h shade.h temp.h utils.h
+I_H 			= fractol.h ft_math.h hooks.h keycodes.h \
+				  parser.h render.h shade.h temp.h utils.h 
 I 				= $(patsubst %.h, $(I_DIR)/%.h, $(I_H)) \
 				  $(I_FTPF_H) $(I_LIBFT_H)
 
@@ -148,6 +148,11 @@ fclean: clean
 			@echo "${YELLOW}$(NAME) Removed!${NC}"
 re: fclean $(NAME)
 
+n:
+	@norminette $(SRC)
+	@norminette $(I)
+	@norminette $(FTPF_DIR)
+	@norminette $(LIBFT_SRC)
 fast: FLAGS += -Ofast
 fast: re 
 debug: FLAGS = -g -D DEBUG

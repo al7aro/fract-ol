@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 02:16:40 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:36:08 by alopez-g         ###   ########.fr       */
+/*   Created: 2022/08/25 03:09:10 by alopez-g          #+#    #+#             */
+/*   Updated: 2022/08/25 03:12:41 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef RENDER_H
+# define RENDER_H
+# include "fractol.h"
 
-typedef enum e_err
-{
-	INVALID_ARGUMENT,
-	TYPE_USAGE,
-	RENDER_USAGE,
-	ZOOM_USAGE,
-	ITER_USAGE,
-	CENTER_USAGE,
-	RI_USAGE,
-	EXP_USAGE,
-	FUNC_USAGE,
-	MANDELBROT_USAGE,
-	JULIA_USAGE,
-	OK
-}			t_err;
+void	render_export(t_fract *f);
+void	render_menu(t_fract *f);
 
 #endif

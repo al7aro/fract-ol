@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:58:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:38:53 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:09:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PARSER_H
 
 # include "fractol.h"
-# include "error.h"
 
 typedef struct s_opt
 {
@@ -37,8 +36,6 @@ void	iter_usage(void);
 void	center_usage(void);
 void	ri_usage(void);
 void	exp_usage(void);
-void	func_usage(void);
-
 void	type_check(int argc, char **argv, t_fract *f, t_opt *opt);
 void	render_check(int argc, char **argv, t_fract *f, t_opt *opt);
 void	zoom_check(int argc, char **argv, t_fract *f, t_opt *opt);
@@ -46,8 +43,6 @@ void	iter_check(int argc, char **argv, t_fract *f, t_opt *opt);
 void	center_check(int argc, char **argv, t_fract *f, t_opt *opt);
 void	ri_check(int argc, char **argv, t_fract *f, t_opt *opt);
 void	exp_check(int argc, char **argv, t_fract *f, t_opt *opt);
-void	func_check(int argc, char **argv, t_fract *f, t_opt *opt);
-
-t_err	parse_args(int argc, char **argv, t_fract *f);
+int		parse_args(int argc, char **argv, t_fract *f);
 
 #endif

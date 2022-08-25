@@ -6,13 +6,12 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 01:47:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 03:06:41 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "error.h"
 #include "fractol.h"
 #include "parser.h"
 
