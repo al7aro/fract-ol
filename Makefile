@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/08/24 02:36:20 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/08/25 02:14:33 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,8 +73,8 @@ SRC_MATH 		= $(SRC_DIR)/math
 SRC_EVENTS 		= $(SRC_DIR)/events
 SRC_COLOR 		= $(SRC_DIR)/color
 SRC_RENDER 		= $(SRC_DIR)/render
-SRC_FRACTOL_C 	= main.c setup.c 
-SRC_PARSER_C 	= parser.c c_parser.c d_parser.c e_parser.c f_parser.c \
+SRC_FRACTOL_C 	= main.c utils.c setup.c 
+SRC_PARSER_C 	= parser.c c_parser.c d_parser.c e_parser.c \
 				  n_parser.c ri_parser.c z_parser.c type_parser.c
 SRC_MATH_C 		= math.c fractal.c funcs.c 
 SRC_EVENTS_C	= hooks.c iter.c menu.c move.c type.c visual.c 

@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 16:08:55 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 01:47:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,6 @@ void	mandelbrot_usage(void)
 	exit(0);
 }
 
-void	type_usage(void)
-{
-	ft_printf("usage: fract-ol fractal_type");
-	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
-	ft_printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("Specify the fractal family to be used, limited to:\n");
-	ft_printf("\tMANDELBROT\t->\tmandelbrot || m\n");
-	ft_printf("\tJULIA\t\t->\tjulia || j\n");
-	ft_printf("\n\tfractal_type --help\t\tDisplay more help");
-	ft_printf("\n\t--help\t\t\t\tDisplay more help");
-	exit(0);
-}
-
 void	type_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	if (argc == 1)
@@ -68,12 +55,6 @@ void	type_check(int argc, char **argv, t_fract *f, t_opt *opt)
 			julia_usage();
 		f->type = JULIA;
 		opt->type = 'j';
-	}
-	else if (!ft_strncmp(ft_strtolower(*argv), "fractals", 6)
-		|| (**argv == 'j' && ft_strlen(*argv) == 1))
-	{
-		if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
-			type_usage();
 	}
 	else
 		usage();

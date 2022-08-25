@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:54 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/20 13:38:05 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 01:30:08 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ri_check(int argc, char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		f->julia_init.r = ft_atof(*(argv));
+		if (!*(argv + 1))
+			usage();
 		f->julia_init.i = ft_atof(*(argv + 1));
 		opt->i = 3;
 		opt->cnt = opt->i;

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:24:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 13:19:38 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:19:43 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ typedef struct s_vec2
 	{
 		long double	r;
 		long double	x;
+		long double	w;
 	};
 	union
 	{
 		long double	i;
 		long double	y;
+		long double	h;
 	};
 }				t_vec2;
 

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:18:33 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 00:36:55 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 02:13:38 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		color(unsigned char r, unsigned char g, unsigned char b,
 int		pixel_buffer_put(t_img *img, int x, int y, int color);
 int		on_loop(void **param);
 int		clean_exit(void *param);
+void	init_fract(t_fract *f);
 
 #endif
