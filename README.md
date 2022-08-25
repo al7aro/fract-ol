@@ -35,21 +35,12 @@
 
 ### TODO
 
-- LEAKS LEAKS LEAKS
 - Reorganizar codigo
-- Pasar la norma
-- Crear pulsadores en el menu
 - Generalizar el exponente de las funciones
-- Arreglar parseo
-- Cambiar por teclado la funcion usada
 - Que los nuevos render tengan nuevos nombres
 - Hacer otro menu negro (imagen) para mostrar los controles
-- Ftoa no funciona bien para numeros entre -1 y 0
-- Crear otra imagen con Mandebrot indicando el punto inicial de Julia
 - Anadir boton para volver a estado inicial
 - Export zoom in video...
-- OPTIMIZACION Veritarium | Prediccion zonas negras
-	https://www.youtube.com/watch?v=ovJcsL7vyrk
 
 # TODO!!!!!!!!!!1!111!!!!!!!!!
 
