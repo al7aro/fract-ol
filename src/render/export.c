@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:04:34 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:11:40 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:36:07 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	render_export(t_fract *f)
 	while (++y < Y2K)
 	{
 		x = -1;
-		while (++x < Y2K)
+		while (++x < X2K)
 			write_color(fd, shade(x, y, *f, 1));
 		completed = y * 100 / Y2K;
 		mlx_string_put(f->mlx->mlx, f->mlx->win,

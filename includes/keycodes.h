@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 20:38:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 15:51:23 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:18:56 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@
 # define J 38
 # define X 7
 # define V 9
+# define Q 12
+# define E 14
 # define F 3
 /* MOUSE CODES */
 # define MSCROLL_UP 5

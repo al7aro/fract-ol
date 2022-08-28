@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:03:01 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 15:53:02 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:18:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int	visual(int keycode, t_fract *f)
 		f->func_sel++;
 	else if (keycode == X)
 		render_export(f);
-	else if (keycode == V)
-		render_export(f);
+	else if (keycode == Q)
+		f->zoom += (f->zoom / f->szoom);
+	else if (keycode == E)
+		f->zoom -= (f->zoom / f->szoom);
 	else if (keycode == SPACE)
 		f->moving_julia = !f->moving_julia;
 	else if (keycode == INTRO)
