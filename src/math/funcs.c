@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 13:22:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 15:45:45 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/31 19:44:04 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp)
 {
-	t_vec2	m;
+	t_vec2	z_pow;
 
-	(void)exp;
-	m.r = (pow(z.r, 2) - pow(z.i, 2)) + c.r;
-	m.i = (2 * z.r * z.i) + c.i;
-	return (m);
+	z_pow = ft_cpow(z, exp);
+	z_pow.r += c.r;
+	z_pow.i += c.i;
+	return (z_pow);
 }
 
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp)

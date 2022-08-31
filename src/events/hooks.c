@@ -31,6 +31,7 @@ int	hook_key_pressed(int keycode, void *param)
 {
 	t_fract	*f;
 
+	ft_printf("KEY: %d\n", keycode);
 	f = (t_fract *)param;
 	move(keycode, f);
 	visual(keycode, f);

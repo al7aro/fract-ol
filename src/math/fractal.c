@@ -35,7 +35,7 @@ int	diverges(t_fract f, void *init_z, void *init_c)
 	}
 	while ((i_cnt++ < f.it) && l < 2)
 	{
-		z = (*(f.func + f.func_sel % FUNC_N))(z, c, 0);
+		z = (*(f.func + f.func_sel % FUNC_N))(z, c, f.exp);
 		l = ft_length(z.r, z.i);
 	}
 	if (l > 2)

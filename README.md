@@ -35,6 +35,7 @@
 
 ### TODO
 
+- Complex number inverse function
 - Reorganizar codigo
 - Generalizar el exponente de las funciones
 - Que los nuevos render tengan nuevos nombres

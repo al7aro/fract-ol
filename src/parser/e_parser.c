@@ -20,7 +20,7 @@ void	exp_check(int argc, char **argv, t_fract *f, t_opt *opt)
 	(void)argc;
 	if (**argv == '-' && *(*argv + 1) == 'e' && ft_strlen(*argv + 1) == 1)
 	{
-		if (!ft_strisdigit(*(argv + 1)) || *(*argv) == 48)
+		if (!ft_strisdigit(*(argv + 1)))
 		{
 			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
 				exp_usage();

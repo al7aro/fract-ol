@@ -6,11 +6,12 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:07:06 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/31 19:10:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+#include "math.h"
 #include "libft.h"
 #include "ft_printf.h"
 #include "fractol.h"

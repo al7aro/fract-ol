@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 12:24:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:19:43 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/31 17:54:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ typedef struct s_vec4
 }				t_vec4;
 
 long double	ft_length(long double x, long double y);
+t_vec2	ft_cpow(t_vec2 c, int exp);
+t_vec2	ft_cinv(t_vec2 c);
 
 #endif

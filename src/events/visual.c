@@ -16,6 +16,17 @@
 #include "utils.h"
 #include "render.h"
 
+int	exponent(int keycode, t_fract *f)
+{
+	if (keycode == N1)
+		f->exp--;
+	if (keycode == N2)
+		f->exp++;
+	if (f->exp < 2)
+		f->exp = 2;
+	return (0);
+}
+
 int	visual(int keycode, t_fract *f)
 {
 	if (keycode == C)
@@ -31,8 +42,12 @@ int	visual(int keycode, t_fract *f)
 	else if (keycode == SPACE)
 		f->moving_julia = !f->moving_julia;
 	else if (keycode == INTRO)
+	{
 		if (f->render_factor > 1)
 			f->render_factor--;
+	}
+	else
+		exponent(keycode, f);
 	return (0);
 }
 

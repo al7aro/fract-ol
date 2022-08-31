@@ -55,4 +55,14 @@
 # define MRB 2
 # define MMID 3
 
+# define N1 18
+# define N2 19
+# define N3 20
+# define N4 21
+# define N5 23
+# define N6 22
+# define N7 26 
+# define N8 28
+# define N9 25
+
 #endif
