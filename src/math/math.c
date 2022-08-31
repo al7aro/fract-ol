@@ -45,12 +45,21 @@ t_vec2	ft_cpow(t_vec2 c, int exp)
 	return (num);
 }
 
+t_vec2	ft_cmul(t_vec2 c1, t_vec2 c2)
+{
+	t_vec2	num;
+
+	num.r = (c1.r * c2.r - c1.i * c2.i);
+	num.i = (c1.r * c2.i + c1.i * c2.r);
+	return (num);
+}
+
 t_vec2	ft_cinv(t_vec2 c)
 {
-	t_vec2		num;
-	double long	aux;
+	t_vec2	num;
+	t_vec2	aux;
 
-	aux = (c.r * c.r - c.i * c.i);
-	num = (t_vec2){{c.r / aux}, {-c.i / aux}};
+	aux = ft_cmul(c, (t_vec2){{c.r}, {-c.i}});
+	num = (t_vec2){{c.r / aux.r}, {-c.i / aux.r}};
 	return (num);
 }

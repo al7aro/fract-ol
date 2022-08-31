@@ -49,6 +49,7 @@ void	init_fract(t_fract *f)
 	*(f->func) = znc;
 	*(f->func + 1) = bship;
 	*(f->func + 2) = ncorn;
+	*(f->func + 3) = zninvc;
 	f->menu_toggle = 0;
 	f->ran_sel = 1;
 	f->func_sel = 0;

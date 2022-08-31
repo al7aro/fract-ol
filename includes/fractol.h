@@ -19,7 +19,7 @@
 # define IY0 -600.0
 
 # define IY1 600.0
-# define MIN_ZOOM 300.0
+# define MIN_ZOOM 100.0
 # define X2K 2048
 # define Y2K 1080
 # define FUNC_N 3
@@ -87,6 +87,7 @@ typedef struct s_fract
 }				t_fract;
 
 t_vec2	znc(t_vec2 z, t_vec2 c, int exp);
+t_vec2	zninvc(t_vec2 z, t_vec2 c, int exp);
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp);
 t_vec2	bship(t_vec2 z, t_vec2 c, int exp);
 int		diverges(t_fract f, void *z, void *c);

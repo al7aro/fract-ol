@@ -24,6 +24,12 @@ t_vec2	znc(t_vec2 z, t_vec2 c, int exp)
 	return (z_pow);
 }
 
+t_vec2	zninvc(t_vec2 z, t_vec2 c, int exp)
+{
+	c = ft_cinv(c);
+	return (znc(z, c, exp));
+}
+
 t_vec2	ncorn(t_vec2 z, t_vec2 c, int exp)
 {
 	(void)exp;
