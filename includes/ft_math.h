@@ -58,7 +58,7 @@ typedef struct s_vec4
 }				t_vec4;
 
 long double	ft_length(long double x, long double y);
-t_vec2	ft_cpow(t_vec2 c, int exp);
-t_vec2	ft_cinv(t_vec2 c);
+t_vec2		ft_cpow(t_vec2 c, int exp);
+t_vec2		ft_cinv(t_vec2 c);
 
 #endif
