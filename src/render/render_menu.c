@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:50:06 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:55:14 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:47:09 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	render_menu(t_fract *f)
 			col = 0;
 			while (++cnt < (*(f->ran + f->ran_sel % RAN_N)).size)
 				if (abs(x - (30 + 40 * cnt)) < 20
-					&& fabs(y - (f->menu->res.h * 0.85)) < 20)
+					&& fabsl(y - (f->menu->res.h * 0.85)) < 20)
 					col = ((*(f->ran + f->ran_sel % RAN_N)).ran[cnt]);
 			pixel_buffer_put(f->menu, x, y, col);
 		}
