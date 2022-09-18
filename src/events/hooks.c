@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/31 13:49:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:30:36 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	hook_key_pressed(int keycode, void *param)
 {
 	t_fract	*f;
 
-	ft_printf("KEY: %d\n", keycode);
 	f = (t_fract *)param;
 	move(keycode, f);
 	visual(keycode, f);

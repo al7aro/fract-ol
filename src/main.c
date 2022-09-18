@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/31 19:10:10 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:30:43 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	main(int argc, char **argv)
 	t_img	menu;
 	t_fract	frac;
 
-	atexit(l);
 	frac.mlx = &mlx;
 	frac.img = &main_buffer;
 	frac.menu = &menu;
