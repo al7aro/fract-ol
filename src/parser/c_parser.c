@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:37 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:05:57 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:52:07 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	center_check(int argc, char **argv, t_fract *f, t_opt *opt)
 	(void)f;
 	if (**argv == '-' && *(*argv + 1) == 'c' && ft_strlen(*argv + 1) == 1)
 	{
-		if (!ft_strisfdigit(*(argv + 1)) || !ft_strisfdigit(*(++argv)))
+		if (!ft_strisfdigit(*(argv++ + 1)) || !ft_strisfdigit(*(argv + 1)))
 		{
 			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))
 				center_usage();
