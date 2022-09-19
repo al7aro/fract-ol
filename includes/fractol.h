@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:13:09 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:12:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/17 11:13:50 by al7aro-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define Y2K 1080
 # define FUNC_N 3
 # define RAN_N 6
+# define DIVERGENCE 2 
 
 # include "ft_math.h"
 # include "temp.h"
