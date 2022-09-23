@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:06:41 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:31:26 by al7aro-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	mandelbrot_usage(void)
 void	type_check(int argc, char **argv, t_fract *f, t_opt *opt)
 {
 	if (argc == 1)
+		usage();
+	if (!(*(argv + 1)))
 		usage();
 	if (!ft_strncmp(ft_strtolower(*argv), "mandelbrot", 11)
 		|| (**argv == 'm' && ft_strlen(*argv) == 1))

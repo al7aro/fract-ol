@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/18 13:55:50 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:31:59 by al7aro-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 void	usage(void)
 {
-	ft_printf("usage: fract-ol mandelbrot ");
+	ft_printf("usage:\n\tfract-ol mandelbrot ");
 	ft_printf("[-d render] [-f func] [-e exp] \n[-r real] ");
 	ft_printf("[-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("usage: fract-ol julia -i x y ");
+	ft_printf("\tfract-ol julia -i x y ");
 	ft_printf("[-d render] [-f func] [-e exp] \n[-r real] ");
 	ft_printf("[-z zoom] [-n iter] [-c centerX centerY]\n\n");
 	ft_printf("Available fract_type:\n");
