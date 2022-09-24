@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:54 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 13:52:25 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:02:51 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ri_check(char **argv, t_fract *f, t_opt *opt)
 		if (!*(argv + 1))
 			usage();
 		f->julia_init.i = ft_atof(*(argv + 1));
+		f->center = (t_vec2){{f->julia_init.x}, {f->julia_init.y}};
+		f->mouse_pos = (t_vec2){{f->center.x}, {f->center.y}};
 		opt->i = 3;
 		opt->cnt = opt->i;
 	}

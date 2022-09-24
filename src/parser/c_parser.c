@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:37 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 13:27:53 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:01:44 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	center_check(char **argv, t_fract *f, t_opt *opt)
 		if (!*(argv + 1))
 			usage();
 		f->center.y = ft_atof(*(argv + 1));
+		f->mouse_pos = (t_vec2){{f->center.x}, {f->center.y}};
 		opt->c = 3;
 		opt->cnt = opt->c;
 	}
