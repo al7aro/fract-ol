@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:54 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 13:28:20 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:39:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ri_check(char **argv, t_fract *f, t_opt *opt)
 		opt->i = 3;
 		opt->cnt = opt->i;
 	}
+	opt->i = 0;
 }
 
 void	ri_usage(void)

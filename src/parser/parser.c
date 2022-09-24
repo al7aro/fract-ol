@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 12:46:27 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:42:58 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	parse_args(int argc, char **argv, t_fract *f)
 {
 	t_opt	opt;
 
+	opt.i = 0;
 	argv++;
 	type_check(argc, argv, f, &opt);
 	argv++;
