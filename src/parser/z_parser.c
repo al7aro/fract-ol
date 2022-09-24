@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:20 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 03:06:34 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:41:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-void	zoom_check(int argc, char **argv, t_fract *f, t_opt *opt)
+void	zoom_check(char **argv, t_fract *f, t_opt *opt)
 {
-	(void)argc;
-	if (**argv == '-' && *(*argv + 1) == 'z' && ft_strlen(*argv + 1) == 1)
+	if (**argv == '-' && *(*argv + 1) == 'z')
 	{
+		if (*(*argv + 2) != 0)
+			usage();
 		if (!ft_strisdigit(*(argv + 1)))
 		{
 			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))

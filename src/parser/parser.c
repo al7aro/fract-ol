@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 23:54:58 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/21 09:31:59 by al7aro-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:46:27 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ char	char_is(char c, char *str)
 	return (0);
 }
 
-void	valid(int argc, char **argv)
+void	valid(char **argv)
 {
-	(void)argc;
 	if (**argv != '-')
 		usage();
 	if (**argv == '-' && !char_is(*(*argv + 1), "deiznec"))
@@ -66,7 +65,9 @@ int	check_compatible(t_opt opt)
 			usage();
 	}
 	else if (opt.type == 'm')
-	{	
+	{
+		if (opt.i)
+			usage();
 		return (0);
 	}
 	return (0);
@@ -84,14 +85,14 @@ int	parse_args(int argc, char **argv, t_fract *f)
 	argv++;
 	while (*argv)
 	{
-		valid(argc, argv);
+		valid(argv);
 		opt.cnt = 0;
-		render_check(argc, argv, f, &opt);
-		exp_check(argc, argv, f, &opt);
-		zoom_check(argc, argv, f, &opt);
-		iter_check(argc, argv, f, &opt);
-		center_check(argc, argv, f, &opt);
-		ri_check(argc, argv, f, &opt);
+		render_check(argv, f, &opt);
+		exp_check(argv, f, &opt);
+		zoom_check(argv, f, &opt);
+		iter_check(argv, f, &opt);
+		center_check(argv, f, &opt);
+		ri_check(argv, f, &opt);
 		argv += opt.cnt;
 	}
 	if (check_compatible(opt))

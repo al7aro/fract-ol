@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:37 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/18 13:52:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:41:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "fractol.h"
 #include "ft_printf.h"
 
-void	center_check(int argc, char **argv, t_fract *f, t_opt *opt)
+void	center_check(char **argv, t_fract *f, t_opt *opt)
 {
-	(void)argc;
-	(void)f;
-	if (**argv == '-' && *(*argv + 1) == 'c' && ft_strlen(*argv + 1) == 1)
+	if (**argv == '-' && *(*argv + 1) == 'c')
 	{
+		if (*(*argv + 2) != 0)
+			usage();
 		if (!ft_strisfdigit(*(argv++ + 1)) || !ft_strisfdigit(*(argv + 1)))
 		{
 			if (*(argv + 1) && !ft_strncmp(*(argv + 1), "--help", 6))

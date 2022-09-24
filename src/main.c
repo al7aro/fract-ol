@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/19 11:36:46 by al7aro-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:17:22 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,41 @@ int	clean_exit(void *param)
 	exit(0);
 }
 
+#ifdef DEBUG
+
 void	l(void)
 {
 	system("leaks fract-ol");
 }
+
+int	main(int argc, char **argv)
+{
+	t_mlx	mlx;
+	t_img	main_buffer;
+	t_img	menu;
+	t_fract	frac;
+
+	atexit(l);
+	frac.mlx = &mlx;
+	frac.img = &main_buffer;
+	frac.menu = &menu;
+	init_fract(&frac);
+	if (parse_args(argc, argv, &frac))
+		clean_exit(&frac);
+	if (setup(&frac, FT_WIDTH, FT_HEIGHT))
+		clean_exit(&frac);
+	update_world(&frac);
+	print_info(frac);
+	mlx_hook(mlx.win, 17, 0, clean_exit, &frac);
+	mlx_hook(mlx.win, 2, 0, hook_key_pressed, &frac);
+	mlx_hook(mlx.win, 6, 0, hook_mouse_move, &frac);
+	mlx_mouse_hook(mlx.win, hook_mouse_pressed, &frac);
+	mlx_loop_hook(mlx.mlx, on_loop, &frac);
+	mlx_loop(mlx.mlx);
+	return (0);
+}
+
+#else
 
 int	main(int argc, char **argv)
 {
@@ -63,3 +94,5 @@ int	main(int argc, char **argv)
 	mlx_loop(mlx.mlx);
 	return (0);
 }
+
+#endif

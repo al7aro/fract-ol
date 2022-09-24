@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/09/01 05:01:45 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/09/24 12:21:43 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,7 +153,7 @@ n:
 	@norminette $(I)
 	@norminette $(FTPF_DIR)
 	@norminette $(LIBFT_SRC)
-fast: FLAGS += -Ofast
+fast: FLAGS += -Ofast -D DEBUG
 fast: re 
 debug: FLAGS = -g -D DEBUG
 debug: re
