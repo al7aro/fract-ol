@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 12:41:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 12:52:22 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	exp_check(char **argv, t_fract *f, t_opt *opt)
 				usage();
 		}
 		f->exp = ft_atoi(*(argv + 1));
+		if (f->exp < 0)
+			usage();
 		opt->e = 2;
 		opt->cnt = opt->e;
 	}
