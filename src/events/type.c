@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:05:12 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/22 03:08:32 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:36:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	type(int keycode, t_fract *f)
 			f->type = JULIA;
 			f->prev_zoom = f->zoom;
 			f->zoom = MIN_ZOOM;
-			f->center = (t_vec2){{0}, {0}};
 		}
 		else if (f->type == JULIA)
 		{
@@ -50,7 +49,6 @@ int	mouse_type(int button, int x, int y, t_fract *f)
 		f->type = JULIA;
 		f->prev_zoom = f->zoom;
 		f->zoom = MIN_ZOOM;
-		f->center = (t_vec2){{0}, {0}};
 	}
 	else if (button == MRB && f->type == JULIA)
 	{
