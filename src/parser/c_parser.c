@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:37 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 12:41:02 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:27:53 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	center_check(char **argv, t_fract *f, t_opt *opt)
 			else
 				usage();
 		}
+		if (!(**argv) || (**argv && !(**(argv + 1))))
+			usage();
 		f->center.x = ft_atof(*(argv));
 		if (!*(argv + 1))
 			usage();
