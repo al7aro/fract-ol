@@ -6,14 +6,13 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 02:14:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/25 02:27:26 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:16:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "utils.h"
 #include "fractol.h"
-#include "ft_printf.h"
 #include "ft_math.h"
 
 t_vec2	screen_to_world(t_fract f, int x, int y)

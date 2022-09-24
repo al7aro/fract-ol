@@ -6,14 +6,14 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:34:54 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 14:02:51 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:14:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "libft.h"
 #include "fractol.h"
-#include "ft_printf.h"
+#include <stdio.h>
 
 void	ri_check(char **argv, t_fract *f, t_opt *opt)
 {
@@ -43,12 +43,12 @@ void	ri_check(char **argv, t_fract *f, t_opt *opt)
 
 void	ri_usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type");
-	ft_printf(" [-d render] [-f func] [-e exp] [-r real]");
-	ft_printf(" [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("Set initial conditions of a Julia like fractal\n");
-	ft_printf("\t-r\t\tSet real part\n");
-	ft_printf("\t-i\t\tSet imaginary part\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
+	printf("usage: fract-ol fractal_type");
+	printf(" [-d render] [-f func] [-e exp] [-r real]");
+	printf(" [-i imag] [-z zoom] [-n iter] [-c centerX centerY]\n\n");
+	printf("Set initial conditions of a Julia like fractal\n");
+	printf("\t-r\t\tSet real part\n");
+	printf("\t-i\t\tSet imaginary part\n");
+	printf("\n\t--help\t\tDisplay more help");
 	exit(0);
 }

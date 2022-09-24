@@ -6,32 +6,32 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 16:21:25 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 13:41:08 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:14:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_printf.h"
+#include <stdio.h>
 #include "fractol.h"
 #include "parser.h"
 
 void	julia_usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type");
-	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
-	ft_printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("Julia like fractal.\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
+	printf("usage: fract-ol fractal_type");
+	printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
+	printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
+	printf("Julia like fractal.\n");
+	printf("\n\t--help\t\tDisplay more help");
 	exit(0);
 }
 
 void	mandelbrot_usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type");
-	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
-	ft_printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("Mandelbrot like fractal.\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
+	printf("usage: fract-ol fractal_type");
+	printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
+	printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
+	printf("Mandelbrot like fractal.\n");
+	printf("\n\t--help\t\tDisplay more help");
 	exit(0);
 }
 

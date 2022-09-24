@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 01:50:06 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/31 13:47:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:12:45 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "fractol.h"
 #include "shade.h"
 #include "utils.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include <fcntl.h>
 #include <math.h>

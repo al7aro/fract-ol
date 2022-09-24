@@ -6,13 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 18:14:27 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/31 19:44:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:15:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 #include <math.h>
-#include <stdio.h>
 
 long double	ft_length(long double x, long double y)
 {

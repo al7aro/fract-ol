@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:15:41 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/18 13:30:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:15:25 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <math.h>
 #include "keycodes.h"
 #include "hooks.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include "fractol.h"
 #include "utils.h"

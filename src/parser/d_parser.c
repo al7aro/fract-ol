@@ -6,14 +6,14 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 17:35:02 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 13:21:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:14:38 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "libft.h"
 #include "fractol.h"
-#include "ft_printf.h"
+#include <stdio.h>
 
 void	render_check(char **argv, t_fract *f, t_opt *opt)
 {
@@ -38,11 +38,11 @@ void	render_check(char **argv, t_fract *f, t_opt *opt)
 
 void	render_usage(void)
 {
-	ft_printf("usage: fract-ol fractal_type");
-	ft_printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
-	ft_printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
-	ft_printf("Specify render detail.\n");
-	ft_printf("Default: 1\n");
-	ft_printf("\n\t--help\t\tDisplay more help");
+	printf("usage: fract-ol fractal_type");
+	printf(" [-d render] [-f func] [-e exp] [-r real] [-i imag]");
+	printf(" [-z zoom] [-n iter] [-c centerX centerY]\n\n");
+	printf("Specify render detail.\n");
+	printf("Default: 1\n");
+	printf("\n\t--help\t\tDisplay more help");
 	exit(0);
 }

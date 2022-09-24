@@ -6,14 +6,13 @@
 /*   By: alopez-g <marvin@41.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 022/08/19 17:34:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/21 15:45:24 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:15:45 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <math.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int	color_range(long double c, int *colors, int n)
 {

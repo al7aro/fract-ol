@@ -6,12 +6,11 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:56:55 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/08/24 02:38:11 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:15:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "keycodes.h"
-#include "ft_printf.h"
 #include "utils.h"
 #include "fractol.h"
 #include <stdlib.h>

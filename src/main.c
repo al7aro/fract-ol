@@ -6,14 +6,14 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 12:17:22 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:11:48 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "mlx.h"
 #include "math.h"
 #include "libft.h"
-#include "ft_printf.h"
 #include "fractol.h"
 #include "utils.h"
 #include "shade.h"
@@ -26,7 +26,7 @@ int	clean_exit(void *param)
 {
 	t_fract	*f;
 
-	ft_printf("Program closed suscesfully!\n");
+	printf("Program closed suscesfully!\n");
 	f = (t_fract *)param;
 	mlx_destroy_window(f->mlx->mlx, f->mlx->win);
 	free(f->mlx->mlx);
