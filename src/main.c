@@ -6,7 +6,7 @@
 /*   By: alopez-g <alopez-g@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 04:12:48 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 14:11:48 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:44:45 by al7aro-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #include "shade.h"
 #include "hooks.h"
 #include "parser.h"
-#define FT_WIDTH 700
-#define FT_HEIGHT 700
+#define FT_WIDTH 1920
+#define FT_HEIGHT 1080
 
 int	clean_exit(void *param)
 {

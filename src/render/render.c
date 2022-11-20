@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:31:36 by alopez-g          #+#    #+#             */
-/*   Updated: 2022/09/24 14:12:37 by alopez-g         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:43:46 by al7aro-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "libft.h"
 #include <fcntl.h>
 #include <math.h>
+#include <pthread.h>
+#include <stdio.h>
 #include "render.h"
 
 /*
@@ -37,38 +39,68 @@ int	pixel_buffer_put(t_img *img, int x, int y, int c)
 	return (0);
 }
 
-void	render_fractal(t_fract *f)
+	pthread_mutex_t m;
+void	*render_fractal(void *param)
 {
+	t_fract *f = ((t_fract *)*((void **)param)); 
 	int		col;
 	int		x;
 	int		y;
 	int		y_limit;
 	t_img	*img;
+	int		n = *((int *)*((void **)param + 1));
 
+	(void)n;
+	fflush(stdout);
 	img = f->img;
-	y = -1;
+	y = 0;
 	y_limit = img->res.h;
-	while (++y < y_limit)
+	while (y < y_limit)
 	{
-		x = -1;
-		while (++x < img->res.w)
+		x = 0;
+		while (x < img->res.w)
 		{
 			if (!(x % f->render_factor))
 				col = shade(x, y, *f, 0);
 			pixel_buffer_put(img, x, y, col);
+			x += 1;
 		}
+		y += 1;
 	}
-	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->img->img, 0, 0);
+	pthread_exit(NULL);
+}
+
+void	*numdup(int n)
+{
+	int	*num;
+
+	num = (int *)malloc(sizeof(int));
+	*num = n;
+	return ((void *)num);
 }
 
 int	on_loop(void **param)
 {
+	int		cnt = -1;
+	int		threadsno = 100;
 	t_fract	*f;
+	void	**p;
 
 	f = ((t_fract *)param);
 	if (f->img)
-		render_fractal(f);
+	{
+		while (++cnt <= threadsno)
+		{
+			p = (void **)malloc(sizeof(void *) * 3);
+			*p = (void *)f;
+			*(p + 1) = numdup(cnt);
+			*(p + 2) = malloc(sizeof(pthread_t *));
+			pthread_create((pthread_t *)*(p + 2), NULL, render_fractal, p);
+			pthread_join(*(p + 2), NULL);
+		}
+	}
 	if (f->menu && f->menu_toggle)
 		render_menu(f);
+	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->img->img, 0, 0);
 	return (0);
 }

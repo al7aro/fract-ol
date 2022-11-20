@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 22:01:15 by alopez-g          #+#    #+#              #
-#    Updated: 2022/09/24 14:17:47 by alopez-g         ###   ########.fr        #
+#    Updated: 2022/11/20 23:01:10 by al7aro-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,7 +127,7 @@ $(NAME): $(OBJ) $(FTPF_SRC) $(M_FTPF) $(LIBFT_SRC) $(M_LIBFT) $(I)
 			@echo " ---> ${CYAN}Success${NC}"
 			@$(CC) $(FLAGS) $(MLX_FLAGS) $(OBJ) \
 				-L$(FTPF_DIR) -l$(FTPF_LIB) \
-				-L$(MLX_LIBDIR) -l$(MLX_LIB) -o $(NAME)
+				-L$(MLX_LIBDIR) -l$(MLX_LIB) -lpthread -o $(NAME)
 			@echo "${GREEN}${NAME} READY!${NC}"
 clean:
 			@make -s -C $(FTPF_DIR) clean
