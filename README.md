@@ -35,14 +35,7 @@
 
 ### TODO
 
-- Complex number inverse function
-- Reorganizar codigo
-- Generalizar el exponente de las funciones
 - Que los nuevos render tengan nuevos nombres
 - Hacer otro menu negro (imagen) para mostrar los controles
 - Anadir boton para volver a estado inicial
 - Export zoom in video...
-
-# TODO!!!!!!!!!!1!111!!!!!!!!!
-
-- [ ] STOP OVER COMPLICATING THIS INITIALY EASY PROJECT
