@@ -1,3 +1,5 @@
+compile_commands.json
+.cache/
 *.ppm
 .DS_Store
 # Prerequisites
